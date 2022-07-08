@@ -1,0 +1,67 @@
+---
+title: "Tidytuesday1"
+author: "Aaron"
+date: '2022-07-07'
+output: html_document
+---
+
+## load in libraries
+
+```{r}
+#loading data
+library(here)
+library(haven)
+#data wrangling
+library(dplyr)
+library(tidyr)
+library(knitr)
+#data presentation
+library(ggplot2)
+library(jtools)
+#regression tools
+library(ivreg)
+library(multiwayvcov)
+library(fixest)
+library(car)
+```
+
+## Manage Data
+
+```{r}
+# Load in Data
+H1 = read.csv(file = 'Data/H1.csv')
+H2 = read.csv(file = 'Data/H2.csv')
+```
+
+
+
+## Create new variables
+
+```{r}
+# merge data
+H1$Resort <- TRUE
+H2$Resort <- FALSE
+
+fullH = merge(H1,H2,all = TRUE)
+
+#concat the month and year variables
+fullH$ArrivalKey <- paste(fullH$ArrivalDateMonth, fullH$ArrivalDateYear)
+
+#create outcome variable for regressions
+fullH$Showed <- (fullH$ReservationStatus =="Check-Out")
+```
+
+
+
+## base models
+
+```{r}
+ols.1 <- lm(Showed ~ Resort + StaysInWeekNights + StaysInWeekendNights + Adults + Children + Babies + IsRepeatedGuest + PreviousBookingsNotCanceled,data = fullH)
+summary(ols.1)
+```
+
+```{r}
+feols.1 <- feols(Showed ~ Resort + StaysInWeekNights + StaysInWeekendNights + Adults + Children + Babies + IsRepeatedGuest + PreviousBookingsNotCanceled, vcov = ~ArrivalKey, data = fullH)
+summary(feols.1)
+```
+
