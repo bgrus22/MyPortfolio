@@ -19,7 +19,11 @@ library(lubridate)
 #data presentation
 library(ggplot2)
 library(jtools)
+library(grid)
+library(gridExtra)
+library(broom)
 #regression tools
+library(plm)
 library(ivreg)
 library(multiwayvcov)
 library(fixest)
@@ -51,6 +55,14 @@ fullH <- na.omit(fullH)
 #create outcome variable for regressions
 fullH$Showed <- (fullH$ReservationStatus =="Check-Out")
 
+#convert variables to proper binary
+fullH$Showed <- ifelse(
+  fullH$Showed == TRUE,
+  1, 0)
+fullH$Resort <- ifelse(
+  fullH$Resort == TRUE,
+  1,0)
+
 ##create date variable
 #manage month nd day values
 fullH$ArrivalDateMonthNum = match(fullH$ArrivalDateMonth,month.name)
@@ -61,37 +73,36 @@ fullH$ArrivalDateDayOfMonth <- ifelse(
   nchar(fullH$ArrivalDateDayOfMonth)!=2,
   paste0('0',fullH$ArrivalDateDayOfMonth),fullH$ArrivalDateDayOfMonth)
 #combine variables
-fullH$date <- paste(fullH$ArrivalDateYear,fullH$ArrivalDateMonthNum)
-fullH$date <- paste(fullH$date, fullH$ArrivalDateDayOfMonth)
+fullH$d8 <- paste(fullH$ArrivalDateYear,fullH$ArrivalDateMonthNum)
+fullH$d8 <- paste(fullH$d8, fullH$ArrivalDateDayOfMonth)
 #format for lubridate
-fullH$date = gsub(" ","",fullH$date)
-fullH$date <- as.integer(fullH$date)
+fullH$d8 = gsub(" ","",fullH$d8)
+fullH$d8 <- as.integer(fullH$d8)
 #ymd to format
-fullH$date <- ymd(fullH$date)
+fullH$d8 <- ymd(fullH$d8)
 
-#mark covid as 2020
-fullH$postCoVid <- ifelse(
-  fullH$date >= ymd(20200301),
-  1,0)
 ```
 
 
-##visualize covid period
-
+##visualize cancellartion rate and bookings rate
 ```{r}
-
+ggplot(
+  data = fullH, 
+# set aesthetic information
+    mapping = aes(
+      x=d8, 
+      y=Showed,
+      colour = factor(Resort))) +
+  stat_summary(
+# set geometry to line
+    geom = 'line')
 ```
 
 
 ## base models
 
 ```{r}
-ols.1 <- lm(Showed ~ Resort + StaysInWeekNights + StaysInWeekendNights + Adults + Children + Babies + IsRepeatedGuest + PreviousBookingsNotCanceled + postCoVid,data = fullH)
+ols.1 <- lm(Showed ~ Resort + StaysInWeekNights + StaysInWeekendNights + Adults + Children + Babies + PreviousBookingsNotCanceled,data = fullH)
 summary(ols.1)
-```
-
-```{r}
-feols.1 <- feols(Showed ~ Resort + StaysInWeekNights + StaysInWeekendNights + Adults + Children + Babies + IsRepeatedGuest + PreviousBookingsNotCanceled+ postCoVid, data = fullH)
-summary(feols.1)
 ```
 
