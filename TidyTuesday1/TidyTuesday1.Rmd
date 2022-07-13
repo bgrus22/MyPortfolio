@@ -93,7 +93,7 @@ fullH$d8 <- ymd(fullH$d8)
 
 
 ## early visualization 
-#cancellartion rate and bookings rate
+#cancellartion rate 
 ```{r}
 ggplot(
   data = fullH, 
@@ -103,25 +103,24 @@ ggplot(
       y=Showed,
       colour = factor(Resort))) +
   stat_summary(
-# set geometry to line
-    geom = 'line')
+# set geometry to point
+    geom = 'point')
 ```
 
+#bookings rate
 ```{r}
-
-balancechk <- fullH %>% 
-#group the data 
-  group_by(d8) %>% 
-#summarize
-  summarize(
-    n = count(ArrivalDateMonthNum),
-    d8 = d8)
+# Groupby count of single column
+dta <- fullH %>%
+  group_by(d8) %>%
+  summarise(count_ArrivalDateMonthNumsales = n())
   
-  
-  
-  
-#  ggplot(aes(x=d8,y=emp2020)) + 
-#  geom_point() 
+#rename variable
+dta$bookings <- dta$count_ArrivalDateMonthNumsales 
+#graph
+dta %>% 
+  ggplot(aes(x=d8,
+             y=bookings)) + 
+  geom_point() 
 ```
 
 
