@@ -53,15 +53,23 @@ fullH <- na.omit(fullH)
 
 ```{r}
 #create outcome variable for regressions
-fullH$Showed <- (fullH$ReservationStatus =="Check-Out")
-
-#convert variables to proper binary
 fullH$Showed <- ifelse(
-  fullH$Showed == TRUE,
+  fullH$ReservationStatus =="Check-Out",
   1, 0)
 fullH$Resort <- ifelse(
   fullH$Resort == TRUE,
   1,0)
+
+#create a variable that determines if trip was planned ahead or split decision
+fullH$shortplan <- ifelse(
+  fullH$LeadTime < 12,
+  1,0)
+fullH$longplan <- ifelse(
+  fullH$LeadTime >= 21,
+  1,0)
+
+#create time spent variable
+fullH$staylength <- fullH$StaysInWeekendNights + fullH$StaysInWeekNights
 
 ##create date variable
 #manage month nd day values
@@ -84,7 +92,8 @@ fullH$d8 <- ymd(fullH$d8)
 ```
 
 
-##visualize cancellartion rate and bookings rate
+## early visualization 
+#cancellartion rate and bookings rate
 ```{r}
 ggplot(
   data = fullH, 
@@ -98,11 +107,28 @@ ggplot(
     geom = 'line')
 ```
 
+```{r}
+
+balancechk <- fullH %>% 
+#group the data 
+  group_by(d8) %>% 
+#summarize
+  summarize(
+    n = count(ArrivalDateMonthNum),
+    d8 = d8)
+  
+  
+  
+  
+#  ggplot(aes(x=d8,y=emp2020)) + 
+#  geom_point() 
+```
+
 
 ## base models
 
 ```{r}
-ols.1 <- lm(Showed ~ Resort + StaysInWeekNights + StaysInWeekendNights + Adults + Children + Babies + PreviousBookingsNotCanceled,data = fullH)
+ols.1 <- lm(Showed ~ Resort + staylength + StaysInWeekendNights + Adults + Children + Babies + PreviousBookingsNotCanceled + longplan + shortplan,data = fullH)
 summary(ols.1)
 ```
 
