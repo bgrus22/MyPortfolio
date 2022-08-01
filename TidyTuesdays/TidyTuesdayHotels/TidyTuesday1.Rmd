@@ -1,0 +1,133 @@
+---
+title: "Tidytuesday1"
+author: "Aaron G"
+date: '2022-07-07'
+output: html_document
+---
+
+## load in libraries
+
+```{r}
+#loading data
+library(here)
+library(haven)
+#data wrangling
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(lubridate)
+#data presentation
+library(ggplot2)
+library(jtools)
+library(grid)
+library(gridExtra)
+library(broom)
+#regression tools
+library(plm)
+library(ivreg)
+library(multiwayvcov)
+library(fixest)
+library(car)
+```
+
+## Manage Data
+
+```{r}
+# Load in Data
+H1 = read.csv(file = 'Data/H1.csv')
+H2 = read.csv(file = 'Data/H2.csv')
+```
+
+
+
+## Create new variables
+
+```{r}
+# merge data
+H1$Resort <- TRUE
+H2$Resort <- FALSE
+
+fullH = merge(H1,H2,all = TRUE)
+fullH <- na.omit(fullH)
+```
+
+```{r}
+#create outcome variable for regressions
+fullH$Showed <- ifelse(
+  fullH$ReservationStatus =="Check-Out",
+  1, 0)
+fullH$Resort <- ifelse(
+  fullH$Resort == TRUE,
+  1,0)
+
+#create a variable that determines if trip was planned ahead or split decision
+fullH$shortplan <- ifelse(
+  fullH$LeadTime < 12,
+  1,0)
+fullH$longplan <- ifelse(
+  fullH$LeadTime >= 21,
+  1,0)
+
+#create time spent variable
+fullH$staylength <- fullH$StaysInWeekendNights + fullH$StaysInWeekNights
+
+##create date variable
+#manage month nd day values
+fullH$ArrivalDateMonthNum = match(fullH$ArrivalDateMonth,month.name)
+fullH$ArrivalDateMonthNum <- ifelse(
+  nchar(fullH$ArrivalDateMonthNum)!=2,
+  paste0('0',fullH$ArrivalDateMonthNum),fullH$ArrivalDateMonthNum)
+fullH$ArrivalDateDayOfMonth <- ifelse(
+  nchar(fullH$ArrivalDateDayOfMonth)!=2,
+  paste0('0',fullH$ArrivalDateDayOfMonth),fullH$ArrivalDateDayOfMonth)
+#combine variables
+fullH$d8 <- paste(fullH$ArrivalDateYear,fullH$ArrivalDateMonthNum)
+fullH$d8 <- paste(fullH$d8, fullH$ArrivalDateDayOfMonth)
+#format for lubridate
+fullH$d8 = gsub(" ","",fullH$d8)
+fullH$d8 <- as.integer(fullH$d8)
+#ymd to format
+fullH$d8 <- ymd(fullH$d8)
+```
+
+
+## early visualization 
+#cancellartion rate 
+```{r}
+ggplot(
+  data = fullH, 
+# set aesthetic information
+    mapping = aes(
+      x=d8, 
+      y=Showed,
+      colour = factor(Resort))) +
+  stat_summary(
+# set geometry to point
+    fun = 'mean',
+    geom = 'point')
+```
+
+#bookings rate
+```{r}
+# Groupby count of single column
+dta <- fullH %>%
+  group_by(d8) %>%
+  summarise(count_ArrivalDateMonthNumsales = n())
+  
+#rename variable
+dta$bookings <- dta$count_ArrivalDateMonthNumsales 
+#graph
+dta %>% 
+  ggplot(aes(x=d8,
+             y=bookings)) + 
+  geom_point() 
+```
+
+
+## base models
+
+```{r}
+ols.1 <- lm(Showed ~ Resort + staylength + StaysInWeekendNights + Adults + Children + Babies + PreviousBookingsNotCanceled + longplan + shortplan,data = fullH)
+summary(ols.1)
+```
+
