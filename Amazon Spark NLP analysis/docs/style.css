@@ -1,0 +1,93 @@
+.eda_goal_link {
+  color: #b152f5;
+}
+
+.nlp_goal_link {
+  color: #6ba0f5;
+}
+
+.ml_goal_link {
+  color: #5fd48a;
+}
+
+.future_goal_link {
+  color: #919293;
+}
+
+.goals_format {
+align-self: center;
+background: rgb(256,256,256);
+border: 3px solid;
+border-radius: 10px;
+border-color: #e7c6ff;
+padding: 15px;
+box-shadow: 10px 15px #adb5bd;
+}
+
+.tech_format {
+  align-self: center;
+  background: #e7c6ff;
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #e7c6ff;
+  padding: 5px;
+  }
+
+.nlp_goals_format {
+    align-self: center;
+    background: rgb(256,256,256);
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #a0c4ff;
+    padding: 15px;
+    box-shadow: 10px 15px #adb5bd;
+    }
+
+.nlp_tech_format {
+      align-self: center;
+      background: #a0c4ff;
+      border: 3px solid;
+      border-radius: 10px;
+      border-color: #a0c4ff;
+      padding: 5px;
+      }
+
+.ml_goals_format {
+  align-self: center;
+  background: rgb(256,256,256);
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #99e2b4;
+  padding: 15px;
+  box-shadow: 10px 15px #adb5bd;
+}
+    
+.ml_tech_format {
+  align-self: center;
+  background: #99e2b4;
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #99e2b4;
+  padding: 5px;
+}
+
+.future_goals_format {
+  align-self: center;
+  background: rgb(256,256,256);
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #ced4da;
+  padding: 15px;
+  box-shadow: 10px 15px #adb5bd;
+}
+    
+.future_tech_format {
+  align-self: center;
+  background: #ced4da;
+  border: 3px solid;
+  border-radius: 10px;
+  border-color: #ced4da;
+  padding: 5px;
+}
+  
+.map { height: 180px; }

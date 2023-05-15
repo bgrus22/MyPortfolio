@@ -1,0 +1,82 @@
+# Business Goals 
+## Exploratory Data Analysis Goals 
+<div class = "goals_format"> 
+<b> <a href = "eda.qmd#user_activity" class = "eda_goal_link"> Business Goal -1 :</a></b> We plan on examining user behaviors as our first step. To do this we will check what proportion of users post submissions and comments. This will help us determine if there are hyperactive users in this subreddit. We will also look for users who have posted the largest amount of controversial comments. Doing so we will be able to see if controversiality correlates with a user’s likeliness to have gilded/distinguished comments in this reddit space.
+<br> 
+<div class = "tech_format">
+<b> Technical proposal: </b> We will generate tables from the data, aggregated around the Users, to answer the above questions. The number of distinct users posting or commenting will be compared against the total number of subscribers in the subreddit(obtained from an external source). Also, using this aggregated data, we plan to sort by the amount of controversial comments in order to see their total gilded and distinguished counts.</div> </div>
+<br> 
+<br>
+<div class = "goals_format">
+<b> <a href = "eda.qmd#time_series" class = "eda_goal_link">Business Goal - 2 :</a></b> We will find what are the general frequency trends in submissions and comments in the r/worldnews subreddit, and see how characteristic features of the subreddit vary across time and compare with the general trend. This could also be used to identify events which have affected changes in user behavior.
+<br> 
+<div class = "tech_format">
+<b>Technical Proposal :</b> In order to perform time series analysis, the timestamp of the observation's creation will be used. We will then visualize and analyze the frequency of posting on each date value.</div> </div>
+<br> 
+<br>
+<div class = "goals_format">
+<b> <a href = "eda.qmd#news_story" class = "eda_goal_link">Business Goal - 3 :</a></b> We will examine, what are the most popular/upvoted news sources and stories in the subreddit, and check the count of ‘live threads.’ We will also check what these threads relate to.
+<br>
+<div class = "tech_format">
+<b>Technical proposal :</b> The most popular submissions can be derived from the score variable. The most shared news sites can be found by aggregating on the domain column and examining the number of posts, comments, posts in the top 100, and the average scores. Live threads can be obtained using regex on the title column by applying an appropriate search term. </div> </div> 
+<br>
+<br>
+<div class = "goals_format">
+<b><a href = "eda.qmd#word_cloud" class = "eda_goal_link">Business Goal - 4 :</a></b> We plan to examine the most repetitive words in the comments under the top 5 news stories in the subreddit.
+<br>
+<div class = "tech_format">
+<b>Technical Proposal :</b> By sorting on the “score” column from the dataset, the most popular subreddits can be found. Then word clouds can be created to explore the most frequent words in the comments of the each of the top five submissions. These visualizations give a take-away of the popular topics in the subreddit.</div></div> 
+<br>
+<br>
+<div class = "goals_format">
+<b><a href = "eda.qmd#cosine" class = "eda_goal_link">Business Goal - 5 :</a></b> Given the prominence of the Russia-Ukraine Conflict, we wish to see if the r/worldnews subreddit captured all events it.
+<br>
+<div class = "tech_format">
+<b>Technical Proposal: </b> In order to compare posts regarding the Russia-Ukraine conflict, the ACLED (Armed Conflict Location and Event Data Project) data is proposed to be used. Using terms relevant for war-related events, we can create dummy variables for each news posting and find daily counts of event type. Then, both the datasets will be merged on the event date, and their counts will be compared using apt proximity measures. </div></div> 
+<br>
+<br>
+
+## Natural Language Processing Goals 
+<div class = "nlp_goals_format">
+<b><a href = "nlp.qmd#topic_modeling" class = "nlp_goal_link">Business Goal - 6 :</a></b> We wish to see what the main topics in the submissions of the subreddit are.
+<br>
+<div class = "nlp_tech_format">
+<b>Technical Proposal:</b> In order to identify the major topics under submissions related to the Russia-Ukraine Conflict, topic modeling with LDA will be performed. Particularly, the LDA method for topic modeling will be used as its results are based on conditional probability estimates.</div></div>
+<br>
+<br>
+<div class = "nlp_goals_format">
+<b><a href = "nlp.qmd#ner" class = "nlp_goal_link">Business Goal - 7 :</a></b> We will examine what the key entities in the submissions are and what categories they can be classified to?
+<br>
+<div class = "nlp_tech_format">
+<b>Technical Proposal :</b> Named Entity recognition will be performed using pre-trained models available in johnsnow labs. We shall identify standard categories in the text data such as person’s name, geographic locations, and organizations.</div></div>
+<br>
+<br>
+<div class = "nlp_goals_format">
+<b><a href = "nlp.qmd#sentiment" class = "nlp_goal_link">Business Goal - 8 :</a></b> From previous analysis it was determined that the live threads were tied to the Russia-Ukraine Conflict. Given such a high stakes topic, we are curious to see how the user base reacted to it. To do so we plan on determining the comment sentiments.
+<br>
+<div class = "nlp_tech_format">
+<b>Technical Proposal :</b> For conducting sentiment analysis, we will use pretrained models from johnsnow labs. We will attempt several models to see comparative results, so as to verify our findings.</div></div> 
+<br>
+<br> 
+
+## Machine Learning Goals 
+<div class = "ml_goals_format">
+<b><a href = "ml.qmd#super_sentiment" class = "ml_goal_link">Business Goal - 9 :</a></b> Building on the pre-trained model results, we wish to develop a lexicon based sentiment model using our data. This will allow us to apply sentiment labels to our data and apply supervised learning models enabling better model evaluation.
+<br>
+<div class = "ml_tech_format">
+<b>Technical Proposal :</b> After labelling the dataset using vader sentiment lexicon, it is possible to train supervised models using the sentiment labels as the target variable. A portion of the data will be used in sentiment analysis to obtain the required labels and the remaining data can be labelled by the trained supervised learning models. </div> </div> 
+<br>
+<br>
+<div class = "ml_goals_format">
+<b><a href = "ml.qmd#controversiality" class = "ml_goal_link">Business Goal - 10 :</a></b> We plan on generating a model that will predict controversiality based on the text data.
+<br>
+<div class = "ml_tech_format">
+<b>Technical Proposal :</b> The text data will undergo tfidf weighting. After this, the text will be used as an input to predict what the controversiality is.</div></div>
+<br>
+<br> 
+
+## Future Goals
+<div class = "future_goals_format">
+<b><a href = "ml.qmd#future_analysis" class = "future_goal_link">Business Goal - 11 :</a></b> Karma scores can often influence any user’s actions on a particular subreddit. We wish to see if individual user Karma scores can be predicted by the variables in our dataset?
+<div class = "future_tech_format">
+<b>Technical Proposal:</b> Using the scores in the comments dataset as our target variable, we plan to construct a number of predictors from the dataset such as number of submissions or comments posted, number of gilded comments etc to predict the score value. </div></div> 

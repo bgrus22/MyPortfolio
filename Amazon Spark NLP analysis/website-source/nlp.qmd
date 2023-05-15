@@ -1,0 +1,291 @@
+# Natural Language Processing Analysis 
+```{python}
+#| echo: false
+#| warning: false 
+
+### Importing require libraries 
+import pandas as pd
+import plotly.express as px
+import IPython
+from IPython.display import display, Markdown
+```
+
+## Executive Summary 
+
+In this round of analysis we worked with three <b> Natural Language Processing (NLP) </b> techniques namely 
+<ul> 
+<li> Topic Modeling </li>
+<li> Named Entity Recognition (NER) </li>
+<li> Sentiment Analysis </li>
+</ul> 
+
+Our results from both Topic Modeling and NER indicate widespread consumption of news on the ongoing Russia-Ukraine Conflict. In both cases we saw that the topics our model saw and the entities being referenced most often were either directly involved or adjacent to said conflict. We did see that when subsetting the data around events of the conflict, the topics our models produce had less overlap. Lastly, our Sentiment Analysis on submissions and comments related to the conflict suggested that submissions tended to be more negative while comments had an equal distribution of both negative and positive sentiments. The models appeared to demonstrate low neutrality in both submissions and comments.
+
+
+## Text Pre-Processing 
+We started off our analysis by assessing the number of words in the <i>title</i> and <i>body</i> columns of our datasets. They are represented in the two graphs below.
+
+```{python}
+#| echo: false
+template = 'simple_white'
+
+df_1 = pd.read_csv("../data/csv/Word_Distribution_Comments.csv")
+bin_width = 5 
+df_1["Number of Words"] = df_1["bucket"]*bin_width
+df_1 = df_1[df_1["Number of Words"] <= 200] #### Filtering out outliers 
+fig = px.bar(df_1, 
+            x='Number of Words', y='count', 
+            title = "Figure 3.1: Distribution of Length of Body in Comments Dataset", 
+            labels = {"count" : "Frequency"})
+fig.update_layout(template = template)            
+
+fig.show()
+```
+
+```{python}
+#| echo: false
+
+df_2 = pd.read_csv("../data/csv/Word_Distribution_Submissions.csv")
+template = 'simple_white'
+bin_width = 10 
+df_1["Number of Words"] = df_1["bucket"]*bin_width
+df_1 = df_1[df_1["Number of Words"] <= 200] #### Filtering out outliers 
+fig = px.bar(df_1, 
+            x='Number of Words', y='count', 
+            title = "Figure 3.2: Distribution of Length of Title in Submissions Dataset", 
+            labels = {"count" : "Frequency"})
+fig.update_layout(template = template) 
+fig.show()
+
+```
+
+Both these graphs in figures 1 and 2 are right skewed, reflecting that a major amount of both titles and comments are below 50 words. 
+
+Next, we moved on to preprocessing. In order to do the natural language processing (NLP) tasks, the corpuses of comments and submissions needed to face several steps of processing as listed below:<br> 
+<ol>
+<li> Remove stop words </li> 
+<li> Remove other languages </li> 
+<li> Remove special characters </li> 
+<li> Convert text to lower case </li> 
+<li> Lemmatize words </li> 
+</ol>  
+The above listed preprocessing steps were applied to text portions of our submissions and comments datasets, on the columns <i>title</i> and <i>body</i> respectively. We used the <a href = "https://sparknlp.org/">johnsnowlabs</a> package to conduct our preprocessing and implemented our preprocessing task through a pipeline. systematically converted to document file types and then tokenized. This transformed the data into a <i><b>bag of words</b></i> form and was used to accomplish the business goals below.
+
+After the preprocessing, we assessed the 15 most commonly occurring words in both the submissions and comments dataset as displayed in table 1. 
+
+<b> Table 3.1 : Most Common Words in the Submissions Datasets </b> 
+
+```{python}
+#| echo: false
+
+df_1 = pd.read_csv("../data/csv/top_words_df.csv")
+sub_words = list(df_1["word"])
+sub_total = list(df_1["Total Occurence"].astype("str"))
+
+dict_1 = {"Top Words in Submissions" : sub_words,
+        "Occurence in Submissions" : sub_total}
+df_final = pd.DataFrame(dict_1)
+print(df_final.to_markdown(tablefmt = "fancy_outline", index = False))
+
+
+```
+
+<b> Table 3.2 : Most Common Words in the Comments Datasets </b> 
+
+```{python}
+#| echo: false
+
+df_2 = pd.read_csv("../data/csv/top_words_com.csv")
+com_words = list(df_2["word"])
+com_total = list(df_2["Total Occurence"].astype("str"))
+
+dict_1 = {"Top Words in Comments" : com_words,
+          "Occurence in Comments" : com_total}
+
+df_final = pd.DataFrame(dict_1)
+print(df_final.to_markdown(tablefmt = "fancy_outline", index = False))
+```
+
+It is evident from both tables 3.1 and 3.2 that the Russia-Ukraine Conflict dominates both in the submissions and comments datasets. This result agrees with our EDA analysis. Even when constructing a Word Cloud with the Submissions dataset, we found similar trends as displayed in figure 3.3 below. 
+
+<h3> Figure 3.3 : Word Cloud of Submissions Dataset </h3>
+<br>
+
+```{python}
+#| echo: false
+#| warning: false
+
+IPython.display.Image("../data/plots/submission_wordcloud.png", width = 20, height = 20)
+```
+
+<br> 
+Digging in further, we also evaluated the most important words using the <b>Term Frequency - Inverse Document Frequency (TF-IDF) </b> methodology and obtained the following results. 
+
+<b> Table 3.3 : Most Important Words in the Datasets </b> 
+
+```{python}
+#| echo: false
+
+df_1 = pd.read_csv("../data/csv/tf_idf_sub.csv")
+df_2 = pd.read_csv("../data/csv/tf_idf_com.csv")
+sub_words = list(df_1["word"])
+com_words = list(df_2["word"])
+dict_1 = {"Top Important Words in Submissions" : sub_words,
+        "Top Important Words in Comments" : com_words}
+
+df_final = pd.DataFrame(dict_1)
+print(df_final.to_markdown(tablefmt = "fancy_outline", index = False))
+
+
+```
+
+The TF-IDF doesn't reflect the dominance of war related submissions and comments obtained above. This will be further explored through our following analysis of dominant topics in the data.   
+
+<a id = "topic_modeling"> </a> 
+
+## Key Topics in Submissions 
+ 
+We employed topic modeling through <b>Latent Dirchlet Allocation (LDA)</b> on the cleaned titles of our submissions dataset and obtained 7 topic groups, which saw most of the groups dealing with the Russia-Ukraine Conflict, addressing its different facets. The topics were:
+<ul>
+<li><b>Topic 1:</b> deals with the Russia-Ukraine Conflict and nuclear weapons, power plants</li>
+<li><b>Topic 2:</b> deals with the Russia-Ukraine Conflict and the media/news coverage on the political leaders</li>
+<li><b>Topic 3:</b> deals with the Russia-Ukraine Conflict and oil imports, the EU, laws, and regulation</li>
+<li><b>Topic 4:</b> deals with the Russia-Ukraine Conflict as well as Twitter and Elon Musk</li>
+<li><b>Topic 5:</b> news related to covid, China, and Korea</li>
+<li><b>Topic 6:</b> deals with the Russia-Ukraine Conflict and neighbouring countries</li>
+<li><b>Topic 7:</b> the Russia-Ukraine Conflict and the Qatar World Cup</li>
+</ul> 
+As stated, several of these topics related to the Russia-Ukraine Conflict directly. This high centralization of topic matter seemed to affect topics 4 and 7 which appeared to combine disparate subjects. 
+The LDA topic visualization is displayed below. 
+
+<h3> Figure 3.4 : LDA Topic Visualization for Submissions Datset </h3>
+
+```{python}
+#| echo: false
+#| warning: false 
+
+import pyLDAvis
+from sklearn.decomposition import LatentDirichletAllocation
+import pickle 
+
+with open('../data/pickle/lda_submissions.pkl', 'rb') as file :
+    pickle_lda_params = pickle.load(file)
+
+py_lda_prepared_data = pyLDAvis.prepare(**pickle_lda_params)
+pyLDAvis.display(py_lda_prepared_data)
+```
+
+Further viewing the , utilizing google trends data we were able to determine events in the conflict which most affected internet traffic. Using this we sought to examine how such key events affected the subreddit's submissions, ie news coverage. The first event selected was the start of the war, which we used to create a subset of the data that encompassed the first two weeks of the Russia-Ukraine Conflict and was modeled with only a topic count of 5. Its results saw the following topics:
+<ul>
+<li><b>Topics 1, 2, 3, 5</b> all relating to the Russia-Ukraine Conflict, with repeated terms (political leaders of both countries, cities in both countries, and weapons - missiles, nuclear, military, troops)</li>
+<li><b>Topic 4</b> provided an interesting insight - it includes news related to Indian students in Ukraine, as well as Starlink and Elon Musk.</li>
+</ul> 
+To provide context, topic 4 highlighted the early involvement of Musk in providing his satellite services to the country and the Nazi Azov battalion accosting foreign students attempting to flee.
+
+<h3> Figure 3.5 : LDA Topic Visualization for Submissions Datset During the Start of the War </h3>
+
+```{python}
+#| echo: false
+#| warning: false 
+
+with open('../data/pickle/lda_filter1.pkl', 'rb') as file :
+    pickle_lda_params = pickle.load(file)
+
+py_lda_prepared_data = pyLDAvis.prepare(**pickle_lda_params)
+pyLDAvis.display(py_lda_prepared_data)
+
+```
+
+<br>
+The second event we used from the trends coverage, was when Russia began withdrawing. After applying LDA once more, we saw the topic modelling results indicated: 
+<ul>
+<li><b>Topics 1, 2, 3, 4</b> all relating to Russia-Ukraine Conflict, with repeated terms (political leaders of both countries, cities in both countries, and weapons - missiles, nuclear, military, troops)</li>
+<li><b>Topic 5</b> : news related to North Korea firing a ballistic missile over Japan. </li> 
+</ul> 
+As was stated, North Korea had fired a ballistic missile over Japan in the same time period and had been rapidly increasing the rate of testing. This appears to suggest that the smaller subsets of data might be more useful in capturing specific stories without overlapping the conflict with other topics.
+
+<h3> Figure 3.6 : LDA Topic Visualization for Submissions Datset When Russian Troops Started Receding </h3>
+
+```{python}
+#| echo: false
+#| warning: false 
+
+with open('../data/pickle/lda_filter2.pkl', 'rb') as file :
+    pickle_lda_params = pickle.load(file)
+
+py_lda_prepared_data = pyLDAvis.prepare(**pickle_lda_params)
+pyLDAvis.display(py_lda_prepared_data)
+
+```
+
+<a id = "ner"> </a>
+
+## Identifying Key Entities in the Datasets 
+
+The top 12 entities for person, location and organization are displayed in table 3. We used <a href = "https://www.johnsnowlabs.com/named-entity-recognition-ner-with-bert-in-spark-nlp/">BERT </a> pretrained <b> Named Entity Recognition (NER) </b> models to accomplish this. Initially, when feeding the pre trained model with our pre-processed data, we found that Russia and Ukraine didn't feature as one of the top entities. Upon re-running the model pipeline with unprocessed data, the results were more familiar. 
+
+Given the density of topics demonstrated by the previous section's analysis, the focus of the entities on the conflict should not come as a surprise. Using NER, we saw that just as the topics were heavily saturated with the Russia-Ukraine Conflict, the results for most frequently mentioned entities demonstrated this as well. 
+
+In table 3.4, we can clearly see the prevalence of Putin, Biden, and Zelensky; but these persons are not the only noteworthy results. We also can see British political figures, Boris Johnson and Liz Truss, taking a prominent role in the results. Considering the domain table from our EDA, British news coverage made up some of the most popular sources for posts. This could be the reason for the British political figures being highlighted by the NER model. 
+
+When examining the locations results, we saw Ukraine and Russia occur with much greater frequency than the other states, followed by the United States, which appeared twice, and China to a lesser extent.
+
+Lastly our organization based model appeared to return the most mixed results. The top three results were organizations that could easily indicate stories related to the Russia-Ukraine Conflict, but after this the results become less than ideal. Ukrainian cities, Russia, Covid, and Elon Musk were included in the results. This could be seen as a short coming of the models, but also testifies to the prevalence of the conflict in the subreddits submissions. It should also be noted that different n-grams and misspellings resulted in less refined results, and, as stated, the organization results were rather mixed. Table 3.4 displays the entities in the <b>decreasing order of occurence</b>.
+
+<b> Table 3.4 : Top Entities in Submissions </b> 
+
+
+```{python}
+#| echo: false
+
+df_1 = pd.read_csv("../data/csv/NER_person.csv") 
+df_2 = pd.read_csv("../data/csv/NER_location.csv")
+df_3 = pd.read_csv("../data/csv/NER_organisation.csv")
+
+s_1 = list(df_1["Person Entity"])
+s_2 = list(df_2["Location Entity"])
+s_3 = list(df_3["Organisation Entity"])
+
+dict_1 = {"Top People" : s_1, 
+        "Top Locations" : s_2, 
+        "Top Organizations" : s_3}
+
+final_df = pd.DataFrame(dict_1)
+
+print(final_df.to_markdown(tablefmt = "fancy_outline", index = False))
+
+```
+
+
+<a id = "sentiment"> </a>
+
+## Assessing Sentiments on War Related Comments and Submissions 
+
+Based on our previous analysis in the EDA, it has been determined that the live threads in our subreddit were predisposed towards the Russia-Ukraine Conflict. The dominance of said conflict in the submissions was further supported by topic modeling results. We expected that such a topic would lead itself towards strong sentiments and were affirmed in that expectation through employing pre-trained sentiment models as shown in table 3.5 below. 
+
+<b> Table 3.5 : Sentiment Analysis Results From Live Thread Comments </b> 
+
+```{python}
+#| echo: false
+df = pd.read_csv("../data/csv/sentiment_results_1.csv")
+print(df.to_markdown(tablefmt = "fancy_outline", index = False))
+
+```
+
+
+Although the Vivek analyzer categorized more comments as neutral, overall users appeared to have stronger sentiments, generally of a negative sort. This negative pattern was demonstrated to an equal extent by both the IMDB and Twitter models, without significant difference.
+
+Further sentiment analysis was done on submissions related to the Russia-Ukraine Conflict and their related comments, excluding the above analyzed live threads. The models appear to have similar trends, but it should be noted that that for the Twitter and IMDB models the submission titles, those of the articles being shared, were significantly more negative than the comments. Overall the title results for each model indicated 25.22% more overall negative sentiment than the related comment sentiment results, all of which can be seen in table 3.6 below.
+
+<b> Table 3.6 : Sentiment Analysis of War-Related Submissions and Comments </b> 
+
+```{python}
+#| echo: false
+df = pd.read_csv("../data/csv/sentiment_results_2.csv")
+print(df.to_markdown(tablefmt = "fancy_outline", index = False))
+
+```
+
+ The stark difference in results between the Vivek Model and the Twitter and IMDB models is more apparent here. We assumed that titles would have demonstrated more neutral sentiment, as the Vivek model demonstrated; but assuming that the results IMDB and Twitter models are more reliable, marketing tactics may be the culprit for the perceived negativity. Given how article titles have increasingly become the method of user interaction in social media, drawing attention with inflammatory language can be a tactic for increasing user interest. This perceived negativity might also be explained by the dominance of Western Media outlets in this subreddit, that was seen in the EDA analysis.
+
+ We attempted a lexicon based approach, but due to logistical issues we instead went forward with pretrained models <i> sentimentdl_use_twitter</i>, <i>sentimentdl_use_imdb</i> and <i> VivekSentimentAnalyzer </i>. In the future, we believe that training our own sentiment analyzer could improve the results.

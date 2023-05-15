@@ -1,0 +1,4 @@
+,Accuracy,Precision,Recall,F1 Score
+Logistic Regression Cross Validation,0.91,0.92,0.93,0.91
+Mulitnomial Naive Bayes,0.72,0.74,0.8,0.72
+SVM Cross Validation,0.92,0.93,0.94,0.92

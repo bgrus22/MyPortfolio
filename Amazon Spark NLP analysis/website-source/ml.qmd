@@ -1,0 +1,161 @@
+# Machine Learning Analysis
+```{python}
+#| echo: false
+#| warning: false 
+
+### Importing require libraries 
+import pandas as pd
+import plotly.express as px
+import ipywidgets as widgets
+import IPython
+
+```
+
+## Executive Summary 
+For our Machine Learning (ML) Analysis we accomplished two separate tasks, one predicting comment sentiment and the second predicting comment controversy. We saw that an SVM model using cross validation was best at predicting comment sentiment, leading in all grading metrics we checked. This sentiment prediction model was saved following the results, with its training. For the models predicting comment controversy, we saw high overall accuracy, but that seemed to have been a result of class imbalance. We describe where the large imbalance between controversial and noncontroversial comments may have come from, and how it may have affected our results. <br>
+
+Additionally we attempted to implement a model outside of our business goals to see whether we would be able to predict karma scores. While we saw promising results for the first two, our karma scores models faced several issues and had what we considered 'pitiful' results, due to its low accuracy. We have chosen instead to include it in the further analysis section below.
+
+<a id = "super_sentiment"> </a> 
+
+## Supervised Sentiment Learning 
+ 
+For training a sentiment classifier, we needed sentiment labels on part of our dataset. To generate these labels, we used the <a href = "https://vadersentiment.readthedocs.io/en/latest/" target = _blank>vaderSentiment</a> python package and tweaked the cluster bootstrap script to install the packages on the driver nodes. A portion of the comments dataset (20%) was labelled using this Vader-Sentiment lexicon. These comments were then used to train a sentiment classifier using supervised learning models namely Logistic Regression, Multinomial Naive Bayes and Support Vector Machines (SVM). After applying 5-fold cross-validation and tuning hyperparameters, we obtained evaluation metrics for the three models as displayed below in table 1. 
+
+<b> Table 4.1 : Evaluation Metrics for Supervised Sentiment Models </b> 
+
+```{python}
+#| echo: false
+#| warning: false
+
+df_1 = pd.read_csv("../data/csv/sentiment_metrics.csv")
+df_1 = df_1.rename(columns = {"Unnamed: 0" : "Models"})
+print(df_1.to_markdown(tablefmt = "fancy_outline", index = False))
+
+```
+
+From table 4.1, it is evident that Support Vector Machines performed the best. This model was then saved and used to label the remaining 80% of the comments dataset. Figure 1 portrays the distribution of sentiments across the comments dataset. 
+
+
+```{python}
+#| echo: false
+#| warning: false
+
+df_2 = pd.read_csv("../data/csv/sentiment_labels_count.csv")
+total = df_2["Number of Comments"].sum()
+df_2["Percentage"] = round(df_2["Number of Comments"]/total*100, 2)
+
+template = 'simple_white'
+
+fig = px.bar(df_2, \
+             x = 'Sentiment_Label', y = 'Percentage', \
+             range_y = [0, 100], \
+             labels = {'Sentiment_Label' : "Sentiment Label", 
+                       'Percentage' : "Percentage of Comments"},
+             title = "Figure 4.1 : Distribution of Sentiments Over the Comments Dataset",
+             template = template            
+             )
+
+fig.update_layout(yaxis_ticksuffix = '%') 
+fig.update_traces(marker_color='#fcbf49')
+fig.show()
+```
+
+This model classifies more comments as neutral as compared to the pre-trained models deployed in the Natural Language Processing analysis section. This is reflected in figure 2 where the sentiment distribution of live thread comments is presented. 
+
+```{python}
+#| echo: false
+#| warning: false
+
+df_sentiment_1 = pd.read_csv("../data/csv/sentiment_results_1.csv")
+
+### Stripping the % symbols and converting to float 
+df_sentiment_1["negative"] = df_sentiment_1["negative"].str.rstrip('%').astype('float')
+
+df_sentiment_1["positive"] = df_sentiment_1["positive"].str.rstrip('%').astype('float')
+
+df_sentiment_1["neutral"] = df_sentiment_1["neutral"].str.rstrip('%').astype('float')
+
+
+
+df_sentiment_2 = pd.read_csv("../data/csv/sentiment_labels_live_threads.csv")
+
+
+total = df_sentiment_2["Number of Comments"].sum()
+negative = round(int(df_sentiment_2["Number of Comments"].loc[df_sentiment_2["Sentiment_Label"] == "Negative"])/total*100, 2)
+positive = round(int(df_sentiment_2["Number of Comments"].loc[df_sentiment_2["Sentiment_Label"] == "Positive"])/total*100, 2)
+neutral = round(int(df_sentiment_2["Number of Comments"].loc[df_sentiment_2["Sentiment_Label"] == "Neutral"])/total*100, 2)
+
+row_dict = {"Model" : ["Vader-Sentiment with SVC"],
+            "negative" : [negative], 
+            "neutral" : [neutral], 
+            "positive" : [positive]}
+
+df_sentiment_3 = pd.DataFrame(row_dict)
+
+df_list = [df_sentiment_1, df_sentiment_3]
+
+final_df_sentiment = pd.concat(df_list)
+### Renaming columns for proper axis ticks 
+final_df_sentiment = final_df_sentiment.rename(columns = {"neutral" : "Neutral", 
+"positive" : "Positive", 
+"negative" : "Negative"})
+
+final_df_sentiment = pd.melt(final_df_sentiment, id_vars = ["Model"], value_vars = ["Negative", "Neutral", "Positive"], value_name = "Percentage", var_name = "Sentiment_Label")
+
+template = 'simple_white'
+
+### Plotting grouped bar graph 
+fig = px.bar(final_df_sentiment, \
+             x = 'Sentiment_Label', y = 'Percentage', \
+             color = "Model", \
+             barmode = "group", range_y = [0, 100], labels = {'Sentiment_Label' : "Sentiment Label", 
+                       'Percentage' : "Percentage of Comments"},
+             title = "Figure 4.2 : Distribution of Sentiments in Live Thread Comments in Different Models",
+             template = template            
+             )
+
+fig.update_layout(yaxis_ticksuffix = '%') 
+fig.show()
+```
+
+Vader-Sentiment lexicon is optimized to work with tweets. Despite this, we observe no similarity with the pre-trained twitter model and the Vader-Sentiment model. 
+
+<a id = "controversiality"> </a> 
+
+## Predicting Controversiality
+
+To accomplish this goal, we converted the text data to TF-IDF weighted vectors of the terms and used them as the input for a variety of models. Testing Logistic Regression, LinearSVC, and NaiveBayes models we sought to predict the controversiality in our comments, the results of which are listed below.
+
+<b> Figure 4.3 : ROC Curves for Different Models </b>
+
+```{python}
+#| echo: false
+#| warning: false
+
+IPython.display.Image("../data/plots/ALL-ROC.png")
+```
+
+Although the ROC curves would indicate that logistic regression was the best performing model, that may be a result of the class imbalance in controversiality. During our preprocessing steps we removed comments that were listed as 'removed' or 'deleted'. We suspect that such comments removal likely affected the predictive capacity of our data set, compounding on the already existing class balance issues.
+
+<b> Table 4.2 : Evaluation Metrics for Controversiality Prediction Models </b> 
+
+```{python}
+#| echo: false
+#| warning: false
+
+df_contro = pd.read_csv("../data/csv/Controversiality_metrics.csv")
+
+print(df_contro.to_markdown(tablefmt = "fancy_outline", index = False))
+
+```
+
+In this table we see that both Logistic Regression and Linear SVC have seemingly perfect recall scores, a result of them almost entirely ignoring comments with <i>controversiality </i> labeled as 1. This appears to confirm our supposition that the underlying class imbalance in our dataset has led to biased models. We believe that this could be further improved in future analysis through the institution of oversampling or undersampling methods or training models such as Complement Naive Bayes that account for class imbalances.
+
+<a id = "future_analysis"> </a> 
+
+## Further Analysis (Predicting Karma Scores)
+
+We also aimed at constructing a regression model to predict the <i>score</i> column in our comments dataset. For this purpose, we used a multitude of predictors such as <i>sentiment_label</i> (obtained from previously trained sentiment classifier), <i>gilded</i>, and <i>distinguished</i> to name a few. Our initial implementation of Linear Regression and Decision Tree models produced sub-optimal (R-squared value of 7%) results. We plan to further work on this task by tuning hyperparameters, assessing scaling requirements and incorporating additional predictors to obtain a well-performing regression model.    
+
+

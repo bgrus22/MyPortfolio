@@ -8,3 +8,4 @@ My name is Aaron G. This repository is a collection of examples of code that sol
     - first is hotel cancellations based on data from TidyTuesday Feb 11, 2020
 - an example of utilizing beautiful soup and SQL to analyze bilateral investment treaties (currently being developed)
 - the etl and shiny code used to generate the following website on [energy development](https://bgrus22.shinyapps.io/EnergyDevelopmentAnalysis/)
+- a aws spark team project for class that was presented to AWS that ultimately loaded the results in a quarto website. This project utilized reddit pushift data and has a slide deck that can render the site

@@ -1,0 +1,54 @@
+# Conclusion 
+```{python}
+#| echo: false
+#| warning: false 
+
+### Importing require libraries 
+import plotly.graph_objects as go
+import plotly.express as px
+import pandas as pd
+import numpy as np
+import IPython
+
+```
+
+
+This project aimed to analyze the comments and posts on the <b>r/worldnews</b> subreddit through natural language processing (NLP) and machine learning (ML) techniques. In our Exploratory Data Analysis (EDA), we identified what news sites were primarily shared on the subreddit, via aggregated submission counts; began seeing what stories were most popular, based on karma scores; found that the discussion threads were heavily tied to the Russia-Ukraine Conflict; and examined the distribution of comments and submissions over time. We noted that several of the shared sites were American in origin, but also saw that many of the popular sources came from several European countries, including Russia. Other social media sites were also a popular submission choice, especially YouTube. Using the ACLED data, we were also able to determine that while the conflict was receiving a large share of attention, not all of the events of the conflict were being shared equally. Additionally, the time series analysis saw that there were multiple gaps in the dataset for certain time periods.
+
+<b> Table 5.1 : Most Shared News Sites </b>
+
+```{python}
+#| echo: false
+#| warning: false 
+
+most_posted_news = pd.read_csv("../data/csv/most_posted_news.csv")
+print(most_posted_news.to_markdown(tablefmt = "fancy_outline", index = False))
+
+```
+
+In the NLP stage of our analysis, we chose to look closer at the topics and entities that the submissions were about, as well as examine the sentiment of both the comments and submissions. In our topic modelling we found that using the whole data resulted in groups with substantial amounts of overlap regarding the conflict. We then constrained the data to time periods that saw high amounts of search interest in Google Trends, creating two subsets which included posts and comments that occurred up to two weeks after the designated event’s date. The resulting subsetted data produced clearer topic groups, with specific events being highlighted, although the cluster of groups which were hard to differentiate remained. For the sentiment analysis at this stage, we used pretrained models from <b>JohnSnowLabs</b> to examine both the sentiment of the comments in the threads as well as comments and submission titles related to the Russia-Ukraine Conflict. Of the three different models used, Twitter and IMDB had identical results while the Vivek model registered a larger portion of the comments and submissions as neutral, but all three models indicated negative sentiment as the plurality of sentiments, if not the majority. The live threads’ results indicated strong sentiments, both positive and negative across the comments, a pattern which seemed to hold in the comments of submissions. The article titles, however, demonstrate much greater negativity according to the IMDB and Twitter models, while the Vivek model read it as again having more neutrality.
+
+<b> Table 5.2 : Pre-Trained Models Sentiment Results on Comments and Submissions </b>
+
+```{python}
+
+#| echo: false
+df = pd.read_csv("../data/csv/sentiment_results_1.csv")
+print(df.to_markdown(tablefmt = "fancy_outline", index = False))
+
+```
+
+
+Lastly, we have successfully designed and implemented predictive ML models to predict controversiality markers and the sentiment of comments and submissions. The controversiality model took in a TF-IDF weighted vector of the comments and was able to achieve a high level of predictive strength, although that seemed to be a result, in large part, due to the class imbalance. We believe that the deleted and removed comments were likely controversial, and so the remaining controversial ones were not being predicted as well as we would hope. For the sentiment model we decided to use Vader-Sentiment lexicon to label our data rather than relying exclusively on pretrained models. The dataset we used to classify sentiment appeared to label more similarly to the Vivek model, with the plurality being negative but showing a larger proportion of neutral material. Several ML algorithms were then used to train the labelled dataset and we ultimately saw great success with test error at slightly above 8%.
+
+<b> Figure 5.1 : ROC Curves for Different Predictive Models Used in Predicting Controversiality </b> 
+
+```{python}
+#| echo: false
+#| warning: false
+
+IPython.display.Image("../data/plots/ALL-ROC.png")
+```
+
+
+Moving forward, we feel that we can further improve our models via the use of over and under sampling techniques to deal with the class imbalance. Additionally, we believe that we can improve on a predictive model for karma scores that we attempted, although at present its accuracy can be described only as pitiful.

@@ -1,0 +1,7 @@
+Model,Type,negative,neutral,positive
+IMDB Sentiment Analyzer,Comments,52.68%,4.26%,43.16%
+IMDB Sentiment Analyzer,Submissions,77.90%,1.25%,20.85%
+Twitter Sentiment Analyzer,Comments,52.68%,4.26%,43.16%
+Twitter Sentiment Analyzer,Submissions,77.90%,1.25%,20.85%
+Vivek Sentiment Analyzer,Comments,46.72%,17.10%,36.18%
+Vivek Sentiment Analyzer,Submissions,45.19%,30.27%,24.54%

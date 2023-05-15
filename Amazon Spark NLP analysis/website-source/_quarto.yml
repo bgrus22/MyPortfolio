@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: ../docs
+website:
+  title: World News Subreddit 
+  favicon: favicon.png
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "I. Overview"
+        contents:
+          - summary.qmd
+          - goals.qmd
+      - section: "II. Exploratory Data Analysis"
+        contents:
+          - eda.qmd
+      - section: "III. Natural Language Processing"
+        contents:
+          - nlp.qmd
+      - section: "IV. Machine Learning"
+        contents:
+          - ml.qmd
+      - section: "V. Results"
+        contents:
+          - results.qmd
+          - appendix.qmd     
+
+  page-footer:
+    left: |
+      Content {{< fa brands creative-commons >}} {{< var course.copyright_year >}} by {{< var author.name >}} <br>
+      All content licensed under a {{< fa brands creative-commons >}}
+      {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}
+      [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+    right: |
+      Made with [VSCode](https://code.visualstudio.com/) and [Quarto](https://quarto.org/)<br>
+      [View the Code source at GitHub]({{< var course.github >}})
+
+
+format:
+  html:
+    theme: sandstone
+    css: style.css
+    toc: true
+    toc-depth: 3
+    toc-location: right 
+    toc-title: "Webpage Contents"
+    toc-expand: true
+

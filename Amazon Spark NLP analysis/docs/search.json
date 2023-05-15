@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "eda.html",
+    "href": "eda.html",
+    "title": "Website {{< var topic.name >}}",
+    "section": "",
+    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\n\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\nlibrary(gt)\n\nWarning: package 'gt' was built under R version 4.2.2\n\ngt(mtcars)\n\n\n\n\n\n  \n  \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n    14.3\n8\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n    24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n    22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n    19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n    17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n    16.4\n8\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n    17.3\n8\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n    15.2\n8\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n    10.4\n8\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n    10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n    14.7\n8\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n    32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n    30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n    33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n    21.5\n4\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n    15.5\n8\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n    15.2\n8\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n    13.3\n8\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n    19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n    27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n    26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n    30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n    15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n    19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n    15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n    21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "ml.html",
+    "href": "ml.html",
+    "title": "Website {{< var topic.name >}}",
+    "section": "",
+    "text": "ML"
+  },
+  {
+    "objectID": "nlp.html",
+    "href": "nlp.html",
+    "title": "Website {{< var topic.name >}}",
+    "section": "",
+    "text": "NLP"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Website {{< var topic.name >}}",
+    "section": "",
+    "text": "Summary"
+  }
+]

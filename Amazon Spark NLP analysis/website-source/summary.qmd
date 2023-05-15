@@ -1,0 +1,94 @@
+# Introduction
+
+```{python}
+#| echo: false
+#| warning: false 
+
+### Importing require libraries 
+import plotly.graph_objects as go
+import plotly.express as px
+import pandas as pd
+import numpy as np
+import IPython
+import ipyplot
+```
+
+## Background 
+
+This project is based on the <a href = "https://files.pushshift.io/reddit/" target = _blank>Push Shift Reddit Dataset</a> and its related work which has served as the primary source for our data and has explanations for our variable’s meanings. The original data contains posts from all subreddits between June 2005 and April 2019, but for the purposes of our project we have restricted ourselves to the <b>r/worldnews</b> subreddit between January, 2022 and January 2023. It is one of the most active and subscribed subreddits on the website, with nearly 31.5 million subscribers as of April 2023. The subreddit was formed in January of 2008, and in its current form is a combination of discussion threads and posts which contain news stories, which can be seen in the screenshot below.
+
+<h3> Figure 1.1 : A Quick Glance at r/worldnews Subreddit </h3>
+
+```{python}
+#| echo: false
+#| warning: false 
+
+IPython.display.Image("../data/plots/worldnews_subreddit.png")
+
+```
+
+Each submission to the subreddit consists of the article title and a link to the material for users to examine after which they can return to reddit to share their thoughts on that particular news story. Unlike other prominent news and politics subreddits, r/worldnews is less America-centric in coverage and has a user base with greater ideological diversity. For this reason, it was selected to analyze the behavior of news consumers and the sorts of news products that are most successful in this supposedly neutral environment. The subreddit data we used consisted of <b>18,548,934</b> comments across <b>170,144</b> submissions, which is visualized in the figure below. It should be noted that upon analysis some temporal gaps in the data were found.
+
+```{python}
+#| echo: false
+#| warning: false 
+
+df_sub_ts = pd.read_csv("../data/csv/df_sub_ts.csv")
+df_comments_ts = pd.read_csv("../data/csv/df_comments_ts.csv")
+
+#Plotly graph objects graph
+sub_count = df_sub_ts['count']
+com_count = df_comments_ts['sum(num_comments)']
+fig = go.Figure()
+fig.update_layout(title_text = "Figure 1.2 Monthly Log Frequency in World News Sub-Reddit",
+                  legend_title="", template="simple_white")
+fig.add_trace(go.Scatter(x=df_sub_ts['date_ym'], y=df_sub_ts["log_count"], name="Submissions", line_color="green",
+      hovertemplate="Month = %{x}<br>Frequency of Occurence = %{text}<extra></extra>", text = sub_count))
+fig.add_trace(go.Scatter(x=df_comments_ts['date_ym'], y=df_comments_ts["log_count"], name = "Comments", line_color="blue",
+      hovertemplate="Month = %{x}<br>Frequency of Occurence = %{text}<extra></extra>",
+                               text = com_count))
+fig.update_xaxes(title_text="Year-Month")
+fig.update_yaxes(title_text="Logged Frequency of Occurence")
+fig.update_layout(xaxis=dict(tickformat="%b-%Y"))
+fig.show()
+
+
+```
+
+
+We also incorporated other data sources to expand our analysis, namely data from Armed Conflict Location & Event Data Project (ACLED) and Google Trends. Using these we sought to examine the timeline of the Russia-Ukraine Conflict, which dominated the topics of the submissions. These datasets, we believe, allow us to better represent the events on the ground and media production, as opposed to the media consumption occurring within the subreddit.
+
+Without going into the specific methods used, we also wish to highlight this project was accomplished using the Amazon Web Services(AWS) platform to work with Spark, and that we used a combination of several different models to achieve our goals, most notably pretrained models from JohnSnowLabs and models which we trained with our data from VaderSentiment. All the code can be found in the GitHub link located on the banner below of each page.
+
+<a id = "about_team"> </a>
+
+## About the Team 
+
+```{python}
+#| echo: false
+#| warning: false
+
+import ipywidgets as widgets
+import IPython.display as display
+from IPython.display import HTML
+## Read images from file (because this is binary, maybe you can find how to use ByteIO) but this is more easy
+img1 = open('../data/plots/Photos/Lucienne.jpg', 'rb').read()
+img2 = open('../data/plots/Photos/Sonali.jpg', 'rb').read()
+img3 = open('../data/plots/Photos/Peijin.jpg', 'rb').read()
+img4 = open('../data/plots/Photos/Aaron.jpeg', 'rb').read()
+## Create image widgets. You can use layout of ipywidgets only with widgets.
+## Set image variable, image format and dimension.
+wi1 = widgets.Image(value=img1, format='jpg', width=200, height=200)
+wi2 = widgets.Image(value=img2, format='jpg', width=200, height=200)
+wi3 = widgets.Image(value=img3, format='jpg', width=200, height=200)
+wi4 = widgets.Image(value=img4, format='jpeg', width=200, height=200)
+## Side by side thanks to HBox widgets
+sidebyside = widgets.HBox([wi1, wi2, wi3, wi4])
+## Finally, show.
+display.display(sidebyside)
+HTML('<style> .widget-text { width: auto; } </style>')
+
+
+```
+
+<p><a href = "https://www.linkedin.com/in/lucienne-lavanya-julian-898923150/" target = _blank>Lucienne L. Julian</a> &emsp;&emsp;&emsp;&ensp; <a href = "https://www.linkedin.com/in/sonali-subbu-rathinam-74b878229/" target = _blank>Sonali Subbu Rathinam</a> &emsp;&emsp;<a href = "https://www.linkedin.com/in/peijin-li-pl724georgetown/" target = _blank>Peijin Li</a> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href = "https://www.linkedin.com/in/aaron-genin/" target = _blank>Aaron Genin</p>
