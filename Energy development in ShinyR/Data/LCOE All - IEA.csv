@@ -1,0 +1,238 @@
+Country,Plant category,Plant type,Construction costs (USD/MWh),Refurbishment costs (USD/MWh),Decommissioning costs (USD/MWh),Total capital costs (USD/MWh),Operations & maintenance costs (USD/MWh),Fuel costs (th) (USD/MWh),Fuel costs (el) (USD/MWh),Carbon price (USD/ton),Carbon costs (USD/MWh),Heat price (USD/MWh),CHP heat revenues (USD/MWh),Discount rate,LCOE (USD/MWh),Energy type
+Japan,Nuclear,ALWR (1152 MW),46.87,0,0.05,46.92,25.84,0,13.92,30,0,37.06,0,0.07,86.67,Nuclear
+"Korea, Republic of",Nuclear,ALWR (1377 MW),25.51,0,0.03,25.54,18.44,0,9.33,30,0,37.06,0,0.07,53.3,Nuclear
+Italy,Biomass,Biomass (0.42 MW),70.23,0,0.19,70.42,59,15.62,159.42,30,0,37.06,0,0.07,288.84,Biomass
+Italy,Biomass,Biomass (0.45 MW),48.93,0,0.13,49.07,26.89,0,0,30,0,37.06,0,0.07,75.96,Biomass
+Brazil,Biomass,Biomass (25.0 MW),34.68,0,0.09,34.78,18.75,0,0,30,0,37.06,0,0.07,53.52,Biomass
+India,Biomass,Biomass (30.0 MW),9.32,0,0.03,9.34,2.24,47.81,106.24,30,0,37.06,0,0.07,117.82,Biomass
+Italy,CHP,Biomass (CHP) (0.42 MW),70.23,0,0.19,70.42,59,15.62,154.82,30,0,37.06,-114.61,0.07,169.62,CHP
+Denmark,CHP,Biomass (CHP) (177 MW),83.54,0,0.23,83.76,33.29,32.8,111.18,30,0,37.06,-102.94,0.07,125.28,CHP
+Denmark,CHP,Biomass (CHP) (258 MW),49.14,0,0.13,49.27,19.36,32.8,76.87,30,0,37.06,-50.25,0.07,95.25,CHP
+Denmark,CHP,Biomass (CHP) (261 MW),56.51,0,0.15,56.66,20.78,41.18,126.33,30,0,37.06,-72.67,0.07,131.1,CHP
+Denmark,CHP,Biomass (CHP) (358 MW),42.26,0,0.11,42.37,14.28,41.18,95.07,30,0,37.06,-39.01,0.07,112.72,CHP
+United States,Coal,Coal (641 MW),46.48,0,0.13,46.61,29.5,7.31,17.16,30,23.9930112,37.06,0,0.07,117.27,Coal
+Brazil,Lignite,Coal (900 MW),24.48,0,0.07,24.55,8.6,10.8,31.76,30,32.02941176,37.06,0,0.07,96.94,Lignite
+United States,Coal,Coal (CCUS) (499 MW),66.99,0,0.18,67.17,42.96,7.31,23.32,30,13.03907524,37.06,0,0.07,146.49,Coal
+France,Fuel cell,Fuel cell (0.003 MW),82.3,0,0.96,83.26,42.66,50,111.11,30,0,37.06,0,0.07,237.03,Fuel cell
+France,Fuel cell,Fuel cell (0.20 MW),74.82,0,0.87,75.69,22.59,50,111.11,30,0,37.06,0,0.07,209.39,Fuel cell
+Norway,Fuel cell,Fuel cell (1.0 MW),44.74,0,0.52,45.26,1.69,50,111.11,30,0,37.06,0,0.07,158.07,Fuel cell
+France,Fuel cell,Fuel cell (15.2 MW),29.93,0,0.35,30.28,36.75,50,111.11,30,0,37.06,0,0.07,178.14,Fuel cell
+Japan,Gas,Gas (CCGT) (1372 MW),12.86,0,0.07,12.93,7.7,34.12,61.04,30,10.83962938,37.06,0,0.07,92.52,Gas
+Canada,Gas,Gas (CCGT) (471 MW),12.27,0,0.07,12.34,6.96,10.92,19.19,30,10.64815466,37.06,0,0.07,49.13,Gas
+China,Gas,Gas (CCGT) (475 MW),6.49,0,0.04,6.53,13.49,31.05,53.53,30,10.4462069,37.06,0,0.07,84,Gas
+"Korea, Republic of",Gas,Gas (CCGT) (491 MW),12.84,0,0.07,12.91,11.36,34.12,60.82,30,10.8,37.06,0,0.07,95.89,Gas
+Belgium,Gas,Gas (CCGT) (500 MW),11.71,0,0.06,11.77,4.8,27.3,42.65,30,9.466875,37.06,0,0.07,68.69,Gas
+Belgium,Gas,Gas (CCGT) (500 MW),8.9,0,0.05,8.95,6,27.3,45.88,30,10.18285714,37.06,0,0.07,71,Gas
+Belgium,Gas,Gas (CCGT) (500 MW),11.29,0,0.06,11.36,6.67,27.3,47.06,30,10.4462069,37.06,0,0.07,75.54,Gas
+Mexico,Gas,Gas (CCGT) (503 MW),7.76,0,0.04,7.81,5.28,10.92,21.62,30,11.99762376,37.06,0,0.07,46.71,Gas
+Australia,Gas,Gas (CCGT) (506 MW),11.07,0,0.06,11.14,6.59,26.63,56.04,30,12.75,37.06,0,0.07,86.51,Gas
+United States,Gas,Gas (CCGT) (727 MW),11.04,0,0.06,11.1,5.3,10.92,18.38,30,10.19824879,37.06,0,0.07,44.98,Gas
+Romania,Gas,Gas (CCGT) (750 MW),2.94,0.06,0.02,3.01,46.27,27.3,47.06,30,10.4462069,37.06,0,0.07,106.79,Gas
+Mexico,Gas,Gas (CCGT) (785 MW),7.74,0,0.04,7.78,5.73,10.92,18.29,30,10.14874372,37.06,0,0.07,41.95,Gas
+Italy,Gas,Gas (CCGT) (790 MW),6.85,0,0.04,6.88,6.99,27.3,45.5,30,10.098,37.06,0,0.07,69.47,Gas
+Mexico,Gas,Gas (CCGT) (835 MW),5.41,0,0.03,5.44,5.51,10.92,18.89,30,10.48235294,37.06,0,0.07,40.32,Gas
+Brazil,Gas,Gas (CCGT) (980 MW),11.11,0,0.06,11.17,11.21,10.92,18.83,30,10.4462069,37.06,0,0.07,51.66,Gas
+"Korea, Republic of",Gas,Gas (CCGT) (982 MW),9.72,0,0.05,9.78,8.41,34.12,58.23,30,10.33924915,37.06,0,0.07,86.76,Gas
+Australia,Gas,"Gas (CCGT, CCUS) (437 MW)",32.78,0,0.18,32.96,12.87,26.63,64.96,30,1.478116614,37.06,0,0.07,112.27,Gas
+United States,Gas,"Gas (CCGT, CCUS) (646 MW)",27.97,0,0.16,28.13,14.22,10.92,22.91,30,5.08509357,37.06,0,0.07,70.34,Gas
+Slovakia,CHP,"Gas (CCGT, CHP) (5.8 MW)",16.34,3.37,0.09,19.8,7.74,27.3,84.46,30,18.74569089,37.06,-68.77,0.07,61.97,CHP
+Denmark,CHP,"Gas (CCGT, CHP) (500 MW)",17.69,0,0.1,17.78,11.96,27.3,47.47,30,10.53540755,37.06,-14.82,0.07,72.92,CHP
+Canada,Gas,Gas (OCGT/int. comb.) (100 MW),36.2,0,0.21,36.41,8.7,10.92,26.44,30,14.67021792,37.06,0,0.07,86.22,Gas
+Italy,Gas,Gas (OCGT/int. comb.) (130 MW),10.3,0,0.06,10.36,11.11,27.3,73.98,30,16.4195122,37.06,0,0.07,111.87,Gas
+Canada,Gas,Gas (OCGT/int. comb.) (243 MW),16.44,0,0.09,16.53,18.53,10.92,27.3,30,15.147,37.06,0,0.07,77.5,Gas
+Belgium,Gas,Gas (OCGT/int. comb.) (350 MW),16.86,0,0.1,16.95,7.5,27.3,68.24,30,15.147,37.06,0,0.07,107.85,Gas
+Belgium,Gas,Gas (OCGT/int. comb.) (500 MW),21.28,0,0.12,21.4,9.83,27.3,66.58,30,14.77756098,37.06,0,0.07,112.59,Gas
+Belgium,Gas,Gas (OCGT/int. comb.) (500 MW),18.73,0,0.11,18.84,7.99,27.3,71.83,30,15.94421053,37.06,0,0.07,114.61,Gas
+Australia,Gas,Gas (OCGT/int. comb.) (537 MW),21.2,0,0.12,21.32,9.09,26.63,86.91,30,19.77415144,37.06,0,0.07,137.09,Gas
+Brazil,Gas,Gas (OCGT/int. comb.) (980 MW),23.45,0,0.13,23.59,16.71,10.92,24.82,30,13.77,37.06,0,0.07,78.89,Gas
+Denmark,CHP,"Gas (OCGT/int. comb., CHP) (125 MW)",14.26,0,0.08,14.35,10.77,27.3,67.65,30,15.01561392,37.06,-38.05,0.07,69.73,CHP
+Romania,CHP,"Gas (OCGT/int. comb., CHP) (195 MW)",3.49,0.14,0.02,3.65,11.75,27.3,33.88,30,7.520196024,37.06,-4.34,0.07,52.47,CHP
+Slovakia,CHP,"Gas (OCGT/int. comb., CHP) (35.9 MW)",10.76,0,0.06,10.82,6.1,27.3,57.46,30,12.7534748,37.06,-26.13,0.07,61.01,CHP
+Russian Federation,Nuclear,Gen III projects (1122 MW),26.86,0,0.03,26.88,10.15,0,4.99,30,0,37.06,0,0.07,42.02,Nuclear
+France,Nuclear,Gen III projects (1650 MW),47.46,0,0.05,47.51,14.26,0,9.33,30,0,37.06,0,0.07,71.1,Nuclear
+Italy,Geothermal,Geothermal (10.0 MW),112.74,0,0.3,113.04,23.02,0,0,30,0,37.06,0,0.07,136.06,Geothermal
+Italy,Geothermal,Geothermal (15.0 MW),82.06,0,0.22,82.27,21.25,0,0,30,0,37.06,0,0.07,103.52,Geothermal
+United States,Geothermal,Geothermal (25.0 MW),68.17,0,0.18,68.35,25.19,0,0,30,0,37.06,0,0.07,93.54,Geothermal
+United States,Geothermal,Geothermal (30.0 MW),45.08,0,0.12,45.2,16.63,0,0,30,0,37.06,0,0.07,61.83,Geothermal
+Italy,Geothermal,Geothermal (39.6 MW),50.04,0,0.13,50.17,17.96,0,0,30,0,37.06,0,0.07,68.13,Geothermal
+Italy,Geothermal,Geothermal (5.0 MW),126.09,0,0.33,126.42,25.38,0,0,30,0,37.06,0,0.07,151.8,Geothermal
+Italy,Hydro,Hydro reservoir (< 5 MW) (0.32 MW),55.93,0,0.01,55.94,16.85,0,0,30,0,37.06,0,0.07,72.79,Hydro
+Japan,Hydro,Hydro reservoir (>= 5 MW) (12.0 MW),119.38,0,0.02,119.4,23,0,0,30,0,37.06,0,0.07,142.4,Hydro
+Italy,Hydro,Hydro reservoir (>= 5 MW) (15.0 MW),75.78,0,0.01,75.8,18.37,0,0,30,0,37.06,0,0.07,94.16,Hydro
+India,Hydro,Hydro reservoir (>= 5 MW) (175 MW),37.68,0,0.01,37.69,11.65,0,0,30,0,37.06,0,0.07,49.34,Hydro
+Norway,Hydro,Hydro reservoir (>= 5 MW) (30.0 MW),33.72,0,0.01,33.73,4.92,0,0,30,0,37.06,0,0.07,38.65,Hydro
+Sweden,Nuclear,LTO (10 years) (1000 MW),8.79,0,0.32,9.11,12.92,0,9.33,30,0,37.06,0,0.07,31.36,Nuclear
+Switzerland,Nuclear,LTO (10 years) (1000 MW),10.88,0,0.4,11.29,12.92,0,9.33,30,0,37.06,0,0.07,33.53,Nuclear
+France,Nuclear,LTO (10 years) (1000 MW),12.45,0,0.46,12.91,12.92,0,9.33,30,0,37.06,0,0.07,35.15,Nuclear
+United States,Nuclear,LTO (10 years) (1000 MW),7.74,0,0.29,8.02,18.69,0,9.33,30,0,37.06,0,0.07,36.04,Nuclear
+Sweden,Nuclear,LTO (20 years) (1000 MW),5.83,0,0.11,5.93,12.92,0,9.33,30,0,37.06,0,0.07,28.18,Nuclear
+Switzerland,Nuclear,LTO (20 years) (1000 MW),7.22,0,0.14,7.35,12.92,0,9.33,30,0,37.06,0,0.07,29.6,Nuclear
+France,Nuclear,LTO (20 years) (1000 MW),8.25,0,0.15,8.41,12.92,0,9.33,30,0,37.06,0,0.07,30.65,Nuclear
+United States,Nuclear,LTO (20 years) (1000 MW),5.13,0,0.1,5.23,18.69,0,9.33,30,0,37.06,0,0.07,33.25,Nuclear
+United States,Nuclear,LWR (1100 MW),50.26,0,0.05,50.32,11.6,0,9.33,30,0,37.06,0,0.07,71.25,Nuclear
+India,Nuclear,LWR (950 MW),32.85,0,0.03,32.89,5.43,0,9.33,30,0,37.06,0,0.07,47.64,Nuclear
+Slovakia,Nuclear,Nuclear (1004 MW),81.84,0.87,0.09,82.8,9.71,0,9.33,30,0,37.06,0,0.07,101.84,Nuclear
+China,Nuclear,Nuclear (950 MW),29.57,0,0.03,29.6,26.42,0,10,30,0,37.06,0,0.07,66.01,Nuclear
+United States,Coal,Pulverised (138 MW),49,0,0.13,49.13,30.47,7.31,20.19,30,28.22320442,37.06,0,0.07,128.02,Coal
+United States,Coal,Pulverised (140 MW),38.54,0,0.1,38.65,22.25,7.31,20.36,30,28.45905292,37.06,0,0.07,109.72,Coal
+United States,Coal,Pulverised (650 MW),27.71,0,0.08,27.78,17.01,7.31,18.23,30,25.47830424,37.06,0,0.07,88.5,Coal
+United States,Coal,Pulverised (CCUS) (650 MW),51.48,0,0.14,51.62,30.45,7.31,23.5,30,13.14057878,37.06,0,0.07,118.72,Coal
+Romania,CHP,"Pulverised, lignite (CHP) (2900 MW)",19.29,2.29,0.05,21.63,129.88,4,12.28,30,33.49679972,37.06,-1.63,0.07,195.65,CHP
+Italy,Hydro,Run of river (< 5 MW) (0.015 MW),108.42,0,0.02,108.43,24.64,0,0,30,0,37.06,0,0.07,133.08,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.10 MW),81.34,0,0.01,81.35,17.01,0,0,30,0,37.06,0,0.07,98.36,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.19 MW),91.61,0,0.02,91.63,21.47,0,0,30,0,37.06,0,0.07,113.09,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.25 MW),75.49,0,0.01,75.5,22.09,0,0,30,0,37.06,0,0.07,97.59,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.25 MW),228.52,0,0.04,228.56,29.18,0,0,30,0,37.06,0,0.07,257.75,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.25 MW),358.18,0,0.06,358.24,51.07,0,0,30,0,37.06,0,0.07,409.32,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.50 MW),48.39,0,0.01,48.4,13.01,0,0,30,0,37.06,0,0.07,61.41,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.50 MW),100.67,0,0.02,100.69,12.07,0,0,30,0,37.06,0,0.07,112.76,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.50 MW),230.41,0,0.04,230.45,17.52,0,0,30,0,37.06,0,0.07,247.97,Hydro
+Italy,Hydro,Run of river (< 5 MW) (0.69 MW),73.43,0,0.01,73.44,12.47,0,0,30,0,37.06,0,0.07,85.91,Hydro
+Italy,Hydro,Run of river (< 5 MW) (1.0 MW),60.78,0,0.01,60.79,8.71,0,0,30,0,37.06,0,0.07,69.49,Hydro
+Italy,Hydro,Run of river (< 5 MW) (2.1 MW),58.94,0,0.01,58.95,8.42,0,0,30,0,37.06,0,0.07,67.38,Hydro
+Austria,Hydro,Run of river (< 5 MW) (2.2 MW),42.4,0,0.01,42.41,11.92,0,0,30,0,37.06,0,0.07,54.33,Hydro
+Norway,Hydro,Run of river (< 5 MW) (3.0 MW),38.58,0,0.01,38.59,8.61,0,0,30,0,37.06,0,0.07,47.19,Hydro
+United States,Hydro,Run of river (< 5 MW) (3.7 MW),105.26,0,0.02,105.28,23.4,0,0,30,0,37.06,0,0.07,128.67,Hydro
+United States,Hydro,Run of river (< 5 MW) (4.2 MW),66.09,0,0.01,66.1,24.42,0,0,30,0,37.06,0,0.07,90.52,Hydro
+United States,Hydro,Run of river (< 5 MW) (4.8 MW),95.47,0,0.02,95.49,22.24,0,0,30,0,37.06,0,0.07,117.72,Hydro
+Germany,Hydro,Run of river (>= 5 MW) (24.5 MW),42.61,5.88,0.01,48.5,8.5,0,0,30,0,37.06,0,0.07,57,Hydro
+Brazil,Hydro,Run of river (>= 5 MW) (248 MW),42.95,0,0.01,42.96,3.16,0,0,30,0,37.06,0,0.07,46.12,Hydro
+United States,Hydro,Run of river (>= 5 MW) (44.1 MW),93.18,0,0.02,93.2,7.57,0,0,30,0,37.06,0,0.07,100.77,Hydro
+Italy,Hydro,Run of river (>= 5 MW) (5.0 MW),76.28,0,0.01,76.29,27.53,0,0,30,0,37.06,0,0.07,103.82,Hydro
+United States,Hydro,Run of river (>= 5 MW) (82.2 MW),84.26,0,0.01,84.28,5.93,0,0,30,0,37.06,0,0.07,90.21,Hydro
+United States,Hydro,Run of river (>= 5 MW) (median case) (44.7 MW),62.24,0,0.01,62.25,8.33,0,0,30,0,37.06,0,0.07,70.58,Hydro
+United States,Hydro,Run of river (>= 5 MW) (median case) (94.0 MW),81.84,0,0.01,81.85,5.35,0,0,30,0,37.06,0,0.07,87.2,Hydro
+Hungary,Solar,Solar PV (commercial) (0.050 MW),98.2,4.47,0.82,103.49,2.1,0,0,30,0,37.06,0,0.07,105.59,Solar
+Italy,Solar,Solar PV (commercial) (0.083 MW),68.22,11.7,0.57,80.49,21.09,0,0,30,0,37.06,0,0.07,101.58,Solar
+"Korea, Republic of",Solar,Solar PV (commercial) (0.099 MW),84.52,0,0.7,85.23,12.91,0,0,30,0,37.06,0,0.07,98.13,Solar
+Denmark,Solar,Solar PV (commercial) (0.10 MW),66.11,0,0.55,66.66,11.1,0,0,30,0,37.06,0,0.07,77.76,Solar
+Netherlands,Solar,Solar PV (commercial) (0.20 MW),62.89,0.91,0.52,64.33,25.17,0,0,30,0,37.06,0,0.07,89.5,Solar
+Italy,Solar,Solar PV (commercial) (0.21 MW),54.01,0,0.45,54.46,16.52,0,0,30,0,37.06,0,0.07,70.98,Solar
+United States,Solar,Solar PV (commercial) (0.30 MW),68.07,0,0.57,68.64,5.83,0,0,30,0,37.06,0,0.07,74.46,Solar
+United States,Solar,Solar PV (commercial) (0.30 MW),73.67,0,0.61,74.28,6.31,0,0,30,0,37.06,0,0.07,80.59,Solar
+United States,Solar,Solar PV (commercial) (0.30 MW),91.83,0,0.76,92.59,7.86,0,0,30,0,37.06,0,0.07,100.45,Solar
+United States,Solar,Solar PV (commercial) (0.30 MW),106.45,0,0.89,107.33,9.11,0,0,30,0,37.06,0,0.07,116.44,Solar
+Norway,Solar,Solar PV (commercial) (0.30 MW),97.89,0,0.82,98.7,41.75,0,0,30,0,37.06,0,0.07,140.45,Solar
+Italy,Solar,Solar PV (commercial) (0.42 MW),63.23,11.7,0.53,75.46,18.28,0,0,30,0,37.06,0,0.07,93.74,Solar
+France,Solar,Solar PV (commercial) (0.50 MW),49.26,0,0.41,49.67,24.31,0,0,30,0,37.06,0,0.07,73.98,Solar
+Hungary,Solar,Solar PV (commercial) (0.50 MW),81.39,1.87,0.68,83.94,20.34,0,0,30,0,37.06,0,0.07,104.28,Solar
+United States,Solar,Solar PV (commercial) (median case) (0.30 MW),86.09,0,0.72,86.81,7.37,0,0,30,0,37.06,0,0.07,94.18,Solar
+Netherlands,Solar,Solar PV (floating) (8.0 MW),62.26,0.89,0.52,63.66,22.73,0,0,30,0,37.06,0,0.07,86.39,Solar
+Hungary,Solar,Solar PV (residential) (0.004 MW),129.55,7.54,1.08,138.16,3.53,0,0,30,0,37.06,0,0.07,141.69,Solar
+Japan,Solar,Solar PV (residential) (0.004 MW),198.74,0,1.66,200.4,22.91,0,0,30,0,37.06,0,0.07,223.3,Solar
+Italy,Solar,Solar PV (residential) (0.004 MW),96.45,12.5,0.8,109.75,164.82,0,0,30,0,37.06,0,0.07,274.57,Solar
+United States,Solar,Solar PV (residential) (0.005 MW),123.59,0,1.03,124.62,10.8,0,0,30,0,37.06,0,0.07,135.42,Solar
+Italy,Solar,Solar PV (residential) (0.005 MW),81.52,0,0.68,82.2,57.53,0,0,30,0,37.06,0,0.07,139.73,Solar
+United States,Solar,Solar PV (residential) (0.005 MW),127.93,0,1.07,128.99,11.18,0,0,30,0,37.06,0,0.07,140.17,Solar
+United States,Solar,Solar PV (residential) (0.005 MW),139.74,0,1.16,140.91,12.21,0,0,30,0,37.06,0,0.07,153.12,Solar
+United States,Solar,Solar PV (residential) (0.005 MW),142.69,0,1.19,143.88,12.47,0,0,30,0,37.06,0,0.07,156.35,Solar
+Denmark,Solar,Solar PV (residential) (0.006 MW),99.39,0,0.83,100.22,14.1,0,0,30,0,37.06,0,0.07,114.32,Solar
+Belgium,Solar,Solar PV (residential) (0.010 MW),80.68,0,0.67,81.35,21.13,0,0,30,0,37.06,0,0.07,102.48,Solar
+France,Solar,Solar PV (residential) (0.010 MW),98.51,0,0.82,99.33,24.31,0,0,30,0,37.06,0,0.07,123.65,Solar
+Belgium,Solar,Solar PV (residential) (0.010 MW),111.3,0,0.93,112.23,13.65,0,0,30,0,37.06,0,0.07,125.88,Solar
+Belgium,Solar,Solar PV (residential) (0.010 MW),142.62,0,1.19,143.81,15.34,0,0,30,0,37.06,0,0.07,159.15,Solar
+Austria,Solar,Solar PV (residential) (0.020 MW),64.47,0,0.54,65,43.18,0,0,30,0,37.06,0,0.07,108.18,Solar
+United States,Solar,Solar PV (residential) (median case) (0.005 MW),115.48,0,0.96,116.44,10.09,0,0,30,0,37.06,0,0.07,126.54,Solar
+Italy,Solar,Solar PV (utility scale) (0.83 MW),43.1,0,0.36,43.46,14.62,0,0,30,0,37.06,0,0.07,58.09,Solar
+Italy,Solar,Solar PV (utility scale) (0.83 MW),32.23,2.87,0.27,35.36,27.59,0,0,30,0,37.06,0,0.07,62.96,Solar
+Belgium,Solar,Solar PV (utility scale) (1.0 MW),76.79,0,0.64,77.43,12.78,0,0,30,0,37.06,0,0.07,90.22,Solar
+United States,Solar,Solar PV (utility scale) (100 MW),30.13,0,0.25,30.39,4.2,0,0,30,0,37.06,0,0.07,34.59,Solar
+United States,Solar,Solar PV (utility scale) (100 MW),33.16,0,0.28,33.44,4.62,0,0,30,0,37.06,0,0.07,38.06,Solar
+Australia,Solar,Solar PV (utility scale) (100 MW),33.58,0,0.28,33.86,4.79,0,0,30,0,37.06,0,0.07,38.65,Solar
+United States,Solar,Solar PV (utility scale) (100 MW),41.55,0,0.35,41.9,5.79,0,0,30,0,37.06,0,0.07,47.69,Solar
+United States,Solar,Solar PV (utility scale) (100 MW),47.88,0,0.4,48.28,6.68,0,0,30,0,37.06,0,0.07,54.96,Solar
+Japan,Solar,Solar PV (utility scale) (2.0 MW),146.5,0,1.22,147.72,24.34,0,0,30,0,37.06,0,0.07,172.05,Solar
+China,Solar,Solar PV (utility scale) (20.0 MW),42.4,0,0.35,42.76,8.02,0,0,30,0,37.06,0,0.07,50.78,Solar
+Canada,Solar,Solar PV (utility scale) (20.0 MW),55.39,0,0.46,55.85,6.62,0,0,30,0,37.06,0,0.07,62.47,Solar
+Hungary,Solar,Solar PV (utility scale) (20.0 MW),72.98,1.4,0.61,74.98,11.06,0,0,30,0,37.06,0,0.07,86.05,Solar
+Canada,Solar,Solar PV (utility scale) (20.0 MW),68.02,0,0.57,68.59,19.36,0,0,30,0,37.06,0,0.07,87.94,Solar
+France,Solar,Solar PV (utility scale) (25.0 MW),30.17,0,0.25,30.42,3.52,0,0,30,0,37.06,0,0.07,33.94,Solar
+Brazil,Solar,Solar PV (utility scale) (25.0 MW),39.17,0,0.33,39.5,6.52,0,0,30,0,37.06,0,0.07,46.02,Solar
+"Korea, Republic of",Solar,Solar PV (utility scale) (3.0 MW),83.55,0,0.7,84.24,12.32,0,0,30,0,37.06,0,0.07,96.57,Solar
+India,Solar,Solar PV (utility scale) (35.0 MW),31.65,0,0.26,31.91,3.69,0,0,30,0,37.06,0,0.07,35.6,Solar
+Denmark,Solar,Solar PV (utility scale) (8.0 MW),33.86,0,0.28,34.14,6.97,0,0,30,0,37.06,0,0.07,41.11,Solar
+Denmark,Solar,Solar PV (utility scale) (8.0 MW),35.57,0,0.3,35.87,7.69,0,0,30,0,37.06,0,0.07,43.56,Solar
+Netherlands,Solar,Solar PV (utility scale) (8.0 MW),58.44,0.89,0.49,59.81,20.16,0,0,30,0,37.06,0,0.07,79.97,Solar
+United States,Solar,Solar PV (utility scale) (median case) (100 MW),38.55,0,0.32,38.87,5.38,0,0,30,0,37.06,0,0.07,44.25,Solar
+United States,Solar,Solar thermal (CSP) (100 MW),103.64,0,0.86,104.5,12.61,0,0,30,0,37.06,0,0.07,117.11,Solar
+United States,Solar,Solar thermal (CSP) (100 MW),125.85,0,1.05,126.89,15.31,0,0,30,0,37.06,0,0.07,142.21,Solar
+Australia,Solar,Solar thermal (CSP) (150 MW),109.18,0,0.91,110.09,19.46,0,0,30,0,37.06,0,0.07,129.55,Solar
+United States,Solar,Solar thermal (CSP) (median case) (100 MW),99.41,0,0.83,100.24,12.1,0,0,30,0,37.06,0,0.07,112.34,Solar
+United States,Coal,Supercritical pulverised (650 MW),28.87,0,0.08,28.95,17.2,7.31,17.51,30,24.47137725,37.06,0,0.07,88.13,Coal
+Australia,Lignite,Supercritical pulverised (709 MW),42,0,0.11,42.11,11.26,1.63,5.13,30,34.35590551,37.06,0,0.07,92.86,Lignite
+Australia,Coal,Supercritical pulverised (722 MW),27.21,0,0.07,27.28,8.69,11.89,29.66,30,25.47195213,37.06,0,0.07,91.1,Coal
+Australia,Lignite,Supercritical pulverised (CCUS) (570 MW),77.05,0,0.21,77.26,25.56,1.63,7.89,30,5.282324455,37.06,0,0.07,115.99,Lignite
+Australia,Coal,Supercritical pulverised (CCUS) (633 MW),50.2,0,0.14,50.34,19.34,11.89,39.58,30,3.399933444,37.06,0,0.07,112.66,Coal
+United States,Coal,Supercritical pulverised (CCUS) (650 MW),52.04,0,0.14,52.18,30.15,7.31,22.38,30,12.51483693,37.06,0,0.07,117.23,Coal
+China,Coal,Ultra-supercritical (347 MW),8.95,0,0.02,8.97,14.97,12.61,28.02,30,22.704,37.06,0,0.07,74.67,Coal
+Japan,Coal,Ultra-supercritical (749 MW),27.05,0,0.07,27.12,19.31,11.89,28.73,30,24.67802243,37.06,0,0.07,99.84,Coal
+"Korea, Republic of",Coal,Ultra-supercritical (954 MW),12.87,0,0.03,12.9,11.62,11.89,27.47,30,23.59538106,37.06,0,0.07,75.59,Coal
+Denmark,CHP,Ultra-supercritical (CHP) (700 MW),37.31,0,0.1,37.41,10.73,10.75,21.28,30,20.22470592,37.06,-29.69,0.07,59.95,CHP
+India,Coal,Ultra-supercritical (load centered) (400 MW),12.42,0,0.03,12.46,38.65,11.89,26.43,30,22.704,37.06,0,0.07,100.25,Coal
+India,Coal,Ultra-supercritical (pithead) (400 MW),12.83,0,0.03,12.87,8.53,11.89,26.43,30,22.704,37.06,0,0.07,70.54,Coal
+Australia,Wind,Wind offshore (100 MW),66.74,0,0.56,67.29,18.07,0,0,30,0,37.06,0,0.07,85.36,Offshore wind
+Japan,Wind,Wind offshore (100 MW),131.89,0,1.1,132.98,67.2,0,0,30,0,37.06,0,0.07,200.18,Offshore wind
+Denmark,Wind,Wind offshore (11.3 MW),38.05,0,0.32,38.36,13.58,0,0,30,0,37.06,0,0.07,51.94,Offshore wind
+Denmark,Wind,Wind offshore (11.5 MW),32.49,0,0.27,32.76,12.33,0,0,30,0,37.06,0,0.07,45.09,Offshore wind
+Belgium,Wind,Wind offshore (12.0 MW),59.3,0,0.49,59.79,35.41,0,0,30,0,37.06,0,0.07,95.2,Offshore wind
+China,Wind,Wind offshore (50.0 MW),62.66,0,0.52,63.18,18.68,0,0,30,0,37.06,0,0.07,81.86,Offshore wind
+Belgium,Wind,Wind offshore (50.0 MW),59.3,0,0.49,59.79,27.64,0,0,30,0,37.06,0,0.07,87.43,Offshore wind
+France,Wind,Wind offshore (500 MW),66.81,0,0.56,67.36,22.46,0,0,30,0,37.06,0,0.07,89.82,Offshore wind
+United States,Wind,Wind offshore (600 MW),44.89,0,0.37,45.26,14.11,0,0,30,0,37.06,0,0.07,59.37,Offshore wind
+United States,Wind,Wind offshore (600 MW),46.19,0,0.38,46.57,14.62,0,0,30,0,37.06,0,0.07,61.19,Offshore wind
+United States,Wind,Wind offshore (600 MW),40.57,0,0.34,40.91,20.44,0,0,30,0,37.06,0,0.07,61.35,Offshore wind
+United States,Wind,Wind offshore (600 MW),41.76,0,0.35,42.11,21.43,0,0,30,0,37.06,0,0.07,63.53,Offshore wind
+United States,Wind,Wind offshore (600 MW),48.31,0,0.4,48.72,15.49,0,0,30,0,37.06,0,0.07,64.21,Offshore wind
+United States,Wind,Wind offshore (600 MW),45.74,0,0.38,46.12,21.95,0,0,30,0,37.06,0,0.07,68.07,Offshore wind
+United States,Wind,Wind offshore (600 MW),50.77,0,0.42,51.19,16.99,0,0,30,0,37.06,0,0.07,68.18,Offshore wind
+United States,Wind,Wind offshore (600 MW),47.31,0,0.39,47.7,22.92,0,0,30,0,37.06,0,0.07,70.63,Offshore wind
+United States,Wind,Wind offshore (600 MW),54.46,0,0.45,54.91,19.18,0,0,30,0,37.06,0,0.07,74.09,Offshore wind
+United States,Wind,Wind offshore (600 MW),55.62,0,0.46,56.08,26.32,0,0,30,0,37.06,0,0.07,82.4,Offshore wind
+United States,Wind,Wind offshore (600 MW),68.36,0,0.57,68.93,24.66,0,0,30,0,37.06,0,0.07,93.59,Offshore wind
+United States,Wind,Wind offshore (600 MW),78.57,0,0.65,79.22,32.56,0,0,30,0,37.06,0,0.07,111.78,Offshore wind
+United States,Wind,Wind offshore (600 MW),91.37,0,0.76,92.13,27.08,0,0,30,0,37.06,0,0.07,119.21,Offshore wind
+"Korea, Republic of",Wind,Wind offshore (99.0 MW),114.93,0,0.96,115.89,45.1,0,0,30,0,37.06,0,0.07,160.99,Offshore wind
+United States,Wind,Wind offshore (median case) (600 MW),43.61,0,0.36,43.97,21.65,0,0,30,0,37.06,0,0.07,65.62,Offshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.014 MW),301.74,0,2.51,304.25,591.74,0,0,30,0,37.06,0,0.07,896,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.020 MW),168.82,0,1.41,170.23,41.87,0,0,30,0,37.06,0,0.07,212.1,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.059 MW),198.09,0,1.65,199.74,41.46,0,0,30,0,37.06,0,0.07,241.2,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.060 MW),135.26,0,1.13,136.39,39.28,0,0,30,0,37.06,0,0.07,175.67,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.10 MW),105.73,0,0.88,106.61,29.29,0,0,30,0,37.06,0,0.07,135.9,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.19 MW),156.17,0,1.3,157.47,27.55,0,0,30,0,37.06,0,0.07,185.02,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.50 MW),77.91,0,0.65,78.55,20.38,0,0,30,0,37.06,0,0.07,98.94,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.80 MW),55.13,0,0.46,55.59,19.69,0,0,30,0,37.06,0,0.07,75.28,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.83 MW),75.24,0,0.63,75.87,12.91,0,0,30,0,37.06,0,0.07,88.78,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.90 MW),55.54,0,0.46,56,15.37,0,0,30,0,37.06,0,0.07,71.37,Onshore wind
+Italy,Wind,Wind onshore (< 1 MW) (0.90 MW),62.88,0,0.52,63.4,15.61,0,0,30,0,37.06,0,0.07,79.01,Onshore wind
+Italy,Wind,Wind onshore (>= 1 MW) (1.0 MW),76.24,0,0.63,76.88,14.56,0,0,30,0,37.06,0,0.07,91.44,Onshore wind
+Italy,Wind,Wind onshore (>= 1 MW) (10.0 MW),37.65,0,0.31,37.96,14.91,0,0,30,0,37.06,0,0.07,52.87,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),26.26,0,0.22,26.48,8.71,0,0,30,0,37.06,0,0.07,35.19,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),27,0,0.22,27.23,9.57,0,0,30,0,37.06,0,0.07,36.8,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),27.66,0,0.23,27.89,9.92,0,0,30,0,37.06,0,0.07,37.81,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),30.23,0,0.25,30.48,10.69,0,0,30,0,37.06,0,0.07,41.17,Onshore wind
+Australia,Wind,Wind onshore (>= 1 MW) (100 MW),33.41,0,0.28,33.69,9.31,0,0,30,0,37.06,0,0.07,43,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),36.46,0,0.3,36.76,11.36,0,0,30,0,37.06,0,0.07,48.13,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),42.62,0,0.35,42.98,12.53,0,0,30,0,37.06,0,0.07,55.5,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),58.66,0,0.49,59.15,14.15,0,0,30,0,37.06,0,0.07,73.29,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),75.76,0,0.63,76.39,16.49,0,0,30,0,37.06,0,0.07,92.88,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (100 MW),127.99,0,1.07,129.06,26.07,0,0,30,0,37.06,0,0.07,155.13,Onshore wind
+Norway,Wind,Wind onshore (>= 1 MW) (130 MW),20.75,0,0.17,20.92,9.84,0,0,30,0,37.06,0,0.07,30.76,Onshore wind
+"Korea, Republic of",Wind,Wind onshore (>= 1 MW) (14.9 MW),84.4,0,0.7,85.1,28.22,0,0,30,0,37.06,0,0.07,113.33,Onshore wind
+Italy,Wind,Wind onshore (>= 1 MW) (20.0 MW),49.17,0,0.41,49.58,9.94,0,0,30,0,37.06,0,0.07,59.52,Onshore wind
+Japan,Wind,Wind onshore (>= 1 MW) (20.0 MW),111.76,0,0.93,112.69,27.48,0,0,30,0,37.06,0,0.07,140.17,Onshore wind
+Canada,Wind,Wind onshore (>= 1 MW) (200 MW),33.34,0,0.28,33.62,13.21,0,0,30,0,37.06,0,0.07,46.83,Onshore wind
+Russian Federation,Wind,Wind onshore (>= 1 MW) (280 MW),53.4,0,0.44,53.85,13.5,0,0,30,0,37.06,0,0.07,67.35,Onshore wind
+Austria,Wind,Wind onshore (>= 1 MW) (3.0 MW),52.31,0,0.44,52.74,23.61,0,0,30,0,37.06,0,0.07,76.35,Onshore wind
+Brazil,Wind,Wind onshore (>= 1 MW) (30.0 MW),27.38,0,0.23,27.61,5.98,0,0,30,0,37.06,0,0.07,33.59,Onshore wind
+Finland,Wind,Wind onshore (>= 1 MW) (30.0 MW),37.62,0,0.31,37.94,6.94,0,0,30,0,37.06,0,0.07,44.88,Onshore wind
+Belgium,Wind,Wind onshore (>= 1 MW) (30.0 MW),47.22,0,0.39,47.61,10.29,0,0,30,0,37.06,0,0.07,57.9,Onshore wind
+Belgium,Wind,Wind onshore (>= 1 MW) (30.0 MW),50.46,0,0.42,50.88,13.23,0,0,30,0,37.06,0,0.07,64.11,Onshore wind
+Denmark,Wind,Wind onshore (>= 1 MW) (4.5 MW),22.69,0,0.19,22.88,6.3,0,0,30,0,37.06,0,0.07,29.18,Onshore wind
+Belgium,Wind,Wind onshore (>= 1 MW) (4.5 MW),60.13,0,0.5,60.63,17.71,0,0,30,0,37.06,0,0.07,78.33,Onshore wind
+Belgium,Wind,Wind onshore (>= 1 MW) (5.0 MW),48.18,0,0.4,48.58,19.96,0,0,30,0,37.06,0,0.07,68.54,Onshore wind
+Netherlands,Wind,Wind onshore (>= 1 MW) (50.0 MW),25.42,0.3,0.21,25.93,15.23,0,0,30,0,37.06,0,0.07,41.17,Onshore wind
+France,Wind,Wind onshore (>= 1 MW) (50.0 MW),38.04,0,0.32,38.35,17.73,0,0,30,0,37.06,0,0.07,56.08,Onshore wind
+China,Wind,Wind onshore (>= 1 MW) (50.0 MW),44.87,0,0.37,45.25,13.18,0,0,30,0,37.06,0,0.07,58.43,Onshore wind
+Russian Federation,Wind,Wind onshore (>= 1 MW) (60.0 MW),57.99,0,0.48,58.47,13.82,0,0,30,0,37.06,0,0.07,72.29,Onshore wind
+India,Wind,Wind onshore (>= 1 MW) (65.0 MW),31.92,0,0.27,32.19,3.72,0,0,30,0,37.06,0,0.07,35.91,Onshore wind
+United States,Wind,Wind onshore (>= 1 MW) (median case) (100 MW),28.52,0,0.24,28.76,10.26,0,0,30,0,37.06,0,0.07,39.02,Onshore wind
