@@ -35,17 +35,32 @@ library(shinythemes)
 ## load data
 
 ```{r}
-WBdta <- read_csv('CleanData/WB_clean.csv')
+WBdta <- read_csv('Final/CleanData/WB_clean.csv')
 
-LCOEdta <-  read_csv('CleanData/LCOE.csv')
+LCOEdta <-  read_csv('Final/CleanData/LCOE.csv')
 
-globalplants <- read_csv('CleanData/globalplants1.csv')
+globalplants <- read_csv('Final/CleanData/globalplants1.csv')
 
-CCoEdta <-  read_csv('CleanData/capital-costs-of-electricity.csv')
+CCoEdta <-  read_csv('Final/CleanData/capital-costs-of-electricity.csv')
 
-Materials <- read_csv('CleanData/Plant_Materials.csv')
+Materials <- read_csv('Final/CleanData/Plant_Materials.csv')
 
-Matprice <- read_csv('CleanData/Material_prices.csv')
+Matprice <- read_csv('Final/CleanData/Material_prices.csv')
+```
+
+```{r}
+#drop
+droplist = c("Country","Plant type","Construction costs (USD/MWh)", "Refurbishment costs (USD/MWh)", "Decommissioning costs (USD/MWh)", "Operations & maintenance costs (USD/MWh)", 'energy_type'
+             #, 'Energy type'
+             )
+LCOE1 <- LCOEdta[, !(names(LCOEdta) %in% droplist)]
+
+#pivot
+LCOE1 <- pivot_longer(
+  LCOE1,
+  cols = c("Total capital costs (USD/MWh)","Total Fuel cost (USD/MWh)"),
+  names_to = "Cost_Type", 
+  values_to = "Cost")
 ```
 
 ```{r}
@@ -87,21 +102,6 @@ p1
 ```
 
 
-
-```{r}
-#drop
-droplist = c("Country","Plant type","Construction costs (USD/MWh)", "Refurbishment costs (USD/MWh)", "Decommissioning costs (USD/MWh)", "Operations & maintenance costs (USD/MWh)", 'energy_type'
-             #, 'Energy type'
-             )
-LCOE1 <- LCOEdta[, !(names(LCOEdta) %in% droplist)]
-
-#pivot
-LCOE1 <- pivot_longer(
-  LCOE1,
-  cols = c("Total capital costs (USD/MWh)","Total Fuel cost (USD/MWh)"),
-  names_to = "Cost_Type", 
-  values_to = "Cost")
-```
 
 
 
