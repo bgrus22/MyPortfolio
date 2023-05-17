@@ -6,6 +6,6 @@ My name is Aaron G. This repository is a collection of examples of code that sol
     - a simple machine learning pipeline examining national depression rates and merging and melting various data sources. It tests alternative equations and compares them visually. It also includes a set of Jupyter notebook slides.
     - a more complex machine learning pipeline that tests multiple outcomes for fertility rate predictions across unbalanced outcome variables.
 - the etl and shiny code used to generate the following website on [energy development](https://bgrus22.shinyapps.io/EnergyDevelopmentAnalysis/). It was the code for a class project that was later transformed and improved upon for a client's dashboard (what is included is the portion that was submitted for school purposes). 
+- an example of utilizing beautiful soup and SQL to analyze bilateral investment treaties (currently being developed)
 - a series of regressions and visualizations examining data from different TidyTuesdays (TT)
     - first is hotel cancellations based on data from TidyTuesday Feb 11, 2020
-- an example of utilizing beautiful soup and SQL to analyze bilateral investment treaties (currently being developed)
